@@ -1,0 +1,8 @@
+name: WitchRush
+version: 1.0
+author: BunSLaPatate
+main: net.berrygames.witchrush.WitchRush
+website: berrygames.net
+
+commands:
+  game:

@@ -3,6 +3,8 @@ package net.berrygames.witchrush.listeners.players;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.game.StartTask;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,20 +16,25 @@ public class PlayerJoin implements Listener {
     @EventHandler
     public void join(PlayerJoinEvent e){
         Player player = e.getPlayer();
-        WitchPlayer witchPlayer = new WitchPlayer(player);
+        WitchPlayer witchPlayer = WitchPlayer.get(player);
 
-        if(WitchRush.get().getState().equals(GameState.WAITING) ||
-                WitchRush.get().getState().equals(GameState.STARTING)){
+        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
             e.setJoinMessage(
-                    WitchRush.prefix()+player.getName()
-                            +" a rejoint la partie §7(§d"
-                            +WitchPlayer.getwitchMap().size()
-                            +"§8/§d16§7)");
+                    WitchRush.prefix()+player.getName()+
+                            " a rejoint la partie §7(§d"+
+                            WitchPlayer.getwitchMap().size()+
+                            "§8/§d16§7)");
             player.setGameMode(GameMode.ADVENTURE);
+            player.setLevel(0);
             player.setHealth(20);
             player.setFoodLevel(20);
             witchPlayer.teleportPlayer();
             witchPlayer.sendGameScoreboard();
+
+            if(WitchPlayer.getwitchMap().size() >= 4){
+                new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
+                WitchRush.get().setState(GameState.STARTING);
+            }
         }
     }
 }

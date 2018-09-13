@@ -88,6 +88,11 @@ public class WitchPlayer {
         return WitchPlayer.witchMap;
     }
 
+    public void removePlayer(){
+        if (WitchPlayer.witchMap.get(player) == null) return;
+        witchMap.remove(player);
+    }
+
     static {
         WitchPlayer.witchMap = new HashMap<>();
     }

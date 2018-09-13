@@ -3,11 +3,10 @@ package net.berrygames.witchrush;
 import net.berrygames.witchrush.commands.CommandsManager;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.listeners.ListenersManager;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class WitchRush extends JavaPlugin {
 
@@ -17,7 +16,9 @@ public class WitchRush extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        gameState = GameState.WAITING;
+        instance = this;
+
+        this.gameState = GameState.WAITING;
 
         new CommandsManager().register(this);
         new ListenersManager().register(this);
@@ -38,6 +39,10 @@ public class WitchRush extends JavaPlugin {
         System.out.println("Desactive");
         System.out.println("*-*-*-*-*-*-*-*");
         super.onDisable();
+
+        for(Player pls : Bukkit.getOnlinePlayers()){
+            pls.kickPlayer(ChatColor.RED+"Le serveur redémarre");
+        }
     }
 
     public void setState(GameState state){
@@ -48,10 +53,10 @@ public class WitchRush extends JavaPlugin {
     }
 
     public static WitchRush get() {
-        return WitchRush.instance;
+        return instance;
     }
 
     public static String prefix(){
-        return "&5&lWitchRush &8&l| &d";
+        return "§5§lWitchRush §8§l| §d";
     }
 }
