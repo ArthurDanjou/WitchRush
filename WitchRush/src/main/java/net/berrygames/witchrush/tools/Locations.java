@@ -2,7 +2,6 @@ package net.berrygames.witchrush.tools;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.World;
 
 public enum Locations {
 
@@ -22,16 +21,16 @@ public enum Locations {
     WITCH_ERT(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
 
     //PNJ SHOP
-    SHOP_BLEU(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
-    SHOP_ROUGE(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
-    SHOP_JAUNE(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
-    SHOP_VERT(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
+    SHOP_BLEU(new Location(Bukkit.getWorld("world"), 1, 100, 0)),
+    SHOP_ROUGE(new Location(Bukkit.getWorld("world"), 3, 100, 0)),
+    SHOP_JAUNE(new Location(Bukkit.getWorld("world"), 5, 100, 0)),
+    SHOP_VERT(new Location(Bukkit.getWorld("world"), 7, 100, 0)),
 
     //PNJ SOLO UPGRADE
-    UPGRADE_BLEU(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
-    UPGRADE_ROUGE(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
-    UPGRADE_JAUNE(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
-    UPGRADE_VERT(new Location(Bukkit.getWorld("world"), 0, 0, 0)),
+    UPGRADE_BLEU(new Location(Bukkit.getWorld("world"), 2, 100, 0)),
+    UPGRADE_ROUGE(new Location(Bukkit.getWorld("world"), 4, 100, 0)),
+    UPGRADE_JAUNE(new Location(Bukkit.getWorld("world"), 6, 100, 0)),
+    UPGRADE_VERT(new Location(Bukkit.getWorld("world"), 8, 100, 0)),
 
     ;
 
@@ -39,5 +38,9 @@ public enum Locations {
 
     Locations(Location location) {
         this.location = location;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }

@@ -6,3 +6,4 @@ website: berrygames.net
 
 commands:
   game:
+  test:
