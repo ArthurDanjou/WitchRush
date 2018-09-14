@@ -2,6 +2,7 @@ package net.berrygames.witchrush.listeners.players;
 
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
+import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.game.StartTask;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -16,11 +17,26 @@ public class PlayerQuit implements Listener {
         Player player = e.getPlayer();
         WitchPlayer witchPlayer = WitchPlayer.get(player);
 
+        e.setQuitMessage(null);
+
         witchPlayer.removePlayer();
 
-        if(WitchPlayer.getwitchMap().size() < 4){
+        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
+            e.setQuitMessage(
+                    WitchRush.prefix()+"§e"+player.getName()+
+                            " §da rejoint la partie §7(§d"+
+                            WitchPlayer.getwitchMap().size()+
+                            "§8/§d16§7)");
+        } else {
+            e.setQuitMessage(null);
+        }
+
+        if(WitchPlayer.getwitchMap().size() < 4 && WitchRush.get().getState().equals(GameState.STARTING)){
             Bukkit.broadcastMessage(WitchRush.prefix()+"§CLe lancement de la partie est annulé. Il n'y a pas assez de joueurs !");
-            new StartTask().cancel();
+            if(!new StartTask().isCancelled()){
+                new StartTask().cancel();
+            }
+
         }
     }
 

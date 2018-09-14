@@ -1,5 +1,7 @@
 package net.berrygames.witchrush;
 
+import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,13 +22,19 @@ public class WitchPlayer {
 
     public WitchPlayer(Player player) {
         this.player = player;
-        this.spectator = false;
+        this.spectator =
+                (WitchRush.get().getState().equals(GameState.WAITING) ||
+                        WitchRush.get().getState().equals(GameState.WAITING)) ? false : true;
         this.kills = 0;
         this.death = 0;
     }
 
     public void teleportPlayer(){
-
+        if(spectator){
+            player.teleport(Locations.SPAWN_SPECTATORS.getLocation());
+        } else {
+            player.teleport(Locations.PLAYER_SPAWN_WAITING_ROOM.getLocation());
+        }
     }
 
     public void giveStuff(){

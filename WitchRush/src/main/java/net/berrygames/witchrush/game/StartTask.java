@@ -1,37 +1,38 @@
 package net.berrygames.witchrush.game;
 
-import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.tools.Locations;
+import net.berrygames.witchrush.tools.SpawnPNJ;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class StartTask extends BukkitRunnable {
 
-    private int timer = 120;
+    private int timer = 30;
 
     @Override
     public void run() {
 
         if(timer == 0){
             new NoPVPTask().runTaskTimer(WitchRush.get(), 0, 20);
-            Bukkit.broadcastMessage(WitchRush.prefix()+"§CLa partie commence ! Vous avez 3minutes pour vous preparer !");
+            Bukkit.broadcastMessage(WitchRush.prefix()+"§dLa partie commence !");
+            Bukkit.broadcastMessage(WitchRush.prefix()+"§Vous avez §63minutes §dpour vous préparez.");
             cancel();
 
             //TP Player
 
             //Spawn SHOP
-            new SpawnPNJ("S bleu", Locations.SHOP_BLEU.getLocation()).spawn();
-            new SpawnPNJ("S rouge", Locations.SHOP_ROUGE.getLocation()).spawn();
-            new SpawnPNJ("S vert", Locations.SHOP_VERT.getLocation()).spawn();
-            new SpawnPNJ("S jaune", Locations.SHOP_JAUNE.getLocation()).spawn();
+            new SpawnPNJ("S", Locations.SHOP_BLEU.getLocation()).spawn();
+            new SpawnPNJ("S", Locations.SHOP_ROUGE.getLocation()).spawn();
+            new SpawnPNJ("S", Locations.SHOP_VERT.getLocation()).spawn();
+            new SpawnPNJ("S", Locations.SHOP_JAUNE.getLocation()).spawn();
 
             //Spawn UPGRADE
-            new SpawnPNJ("U bleu", Locations.UPGRADE_BLEU.getLocation()).spawn();
-            new SpawnPNJ("U rouge", Locations.UPGRADE_ROUGE.getLocation()).spawn();
-            new SpawnPNJ("U vert", Locations.UPGRADE_VERT.getLocation()).spawn();
-            new SpawnPNJ("U jaune", Locations.UPGRADE_JAUNE.getLocation()).spawn();
+            new SpawnPNJ("U", Locations.UPGRADE_BLEU.getLocation()).spawn();
+            new SpawnPNJ("U", Locations.UPGRADE_ROUGE.getLocation()).spawn();
+            new SpawnPNJ("U", Locations.UPGRADE_VERT.getLocation()).spawn();
+            new SpawnPNJ("U", Locations.UPGRADE_JAUNE.getLocation()).spawn();
 
         }
 

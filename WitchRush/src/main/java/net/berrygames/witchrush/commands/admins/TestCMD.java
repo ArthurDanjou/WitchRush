@@ -1,7 +1,8 @@
 package net.berrygames.witchrush.commands.admins;
 
-import net.berrygames.witchrush.game.SpawnPNJ;
+import net.berrygames.witchrush.tools.SpawnPNJ;
 import net.berrygames.witchrush.tools.Locations;
+import net.berrygames.witchrush.tools.SpawnWitch;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,6 +25,13 @@ public class TestCMD implements CommandExecutor {
             new SpawnPNJ("U rouge", Locations.UPGRADE_ROUGE.getLocation()).spawn();
             new SpawnPNJ("U vert", Locations.UPGRADE_VERT.getLocation()).spawn();
             new SpawnPNJ("U jaune", Locations.UPGRADE_JAUNE.getLocation()).spawn();
+        }
+
+        if(args[0].equals("w")){
+            new SpawnWitch("W Rouge", Locations.WITCH_ROUGE.getLocation()).spawn();
+            new SpawnWitch("W Bleu", Locations.WITCH_BLEU.getLocation()).spawn();
+            new SpawnWitch("W Vert", Locations.WITCH_VERT.getLocation()).spawn();
+            new SpawnWitch("W Jaune", Locations.WITCH_JAUNE.getLocation()).spawn();
         }
 
         return false;
