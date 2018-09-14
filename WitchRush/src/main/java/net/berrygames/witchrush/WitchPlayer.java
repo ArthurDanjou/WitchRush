@@ -1,6 +1,7 @@
 package net.berrygames.witchrush;
 
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.tools.ItemFactory;
 import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.Color;
@@ -25,8 +26,8 @@ public class WitchPlayer {
     public WitchPlayer(Player player) {
         this.player = player;
         this.spectator =
-                (WitchRush.get().getState().equals(GameState.WAITING) ||
-                        WitchRush.get().getState().equals(GameState.WAITING)) ? false : true;
+                !WitchRush.get().getState().equals(GameState.WAITING) &&
+                        !WitchRush.get().getState().equals(GameState.WAITING);
         this.kills = 0;
         this.death = 0;
     }
@@ -37,6 +38,22 @@ public class WitchPlayer {
         } else {
             player.teleport(Locations.PLAYER_SPAWN_WAITING_ROOM.getLocation());
         }
+    }
+
+    public Locations teleportToBase(){
+        for(TeamInfos teamInfos : TeamInfos.values()){
+            switch (teamInfos){
+                case ROUGE:
+                    return Locations.PLAYER_SPAWN_ROUGE;
+                case BLEU:
+                    return Locations.PLAYER_SPAWN_BLEU;
+                case VERT:
+                    return Locations.PLAYER_SPAWN_VERT;
+                case JAUNE:
+                    return Locations.PLAYER_SPAWN_JAUNE;
+            }
+        }
+        return null;
     }
 
     public void giveStuff(){

@@ -22,6 +22,7 @@ public class WitchBoss {
         this.witch.setHealth(this.life);
         this.witch.setCustomNameVisible(false);
         this.witch.setAI(false);
+        this.witch.setSilent(false);
         this.witch.setCanPickupItems(false);
         this.witch.setCollidable(false);
     }

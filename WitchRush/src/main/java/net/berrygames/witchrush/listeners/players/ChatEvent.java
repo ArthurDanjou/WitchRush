@@ -21,8 +21,10 @@ public class ChatEvent implements Listener {
             e.setFormat("§7[§6Global§7] §e%1$s §7» §f%2$s");
         } else if(witchPlayer.isSpectator()){
             for(WitchPlayer pls : WitchPlayer.getwitchMap().values()){
-                if(pls.isSpectator()){
-                    e.setFormat("§7[Spectateur] §8%1$s §7» §e%2$s");
+                for(Player players : Bukkit.getOnlinePlayers()){
+                    if(pls.isSpectator()){
+                        players.sendMessage("§7[Spectateur] §8%1$s §7» §e%2$s");
+                    }
                 }
             }
         } else {
@@ -35,7 +37,7 @@ public class ChatEvent implements Listener {
                     final TeamInfos teamInfos = WitchRush.get().getTeamManager().getPlayerTeam(player);
                     if(WitchRush.get().getTeamManager().getPlayerTeam(playerOnline).equals(teamInfos)){
                         playerOnline.sendMessage("§7["+teamInfos.getChatColor()+teamInfos.getTeamName()+"§7] §e"
-                                +player.getDisplayName()+"§7» §f"+message.replaceFirst("!",""));
+                                +player.getDisplayName()+"§7» §f"+message.replace("!",""));
                     }
                 });
             }

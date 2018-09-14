@@ -25,6 +25,7 @@ public class PNJSpawner {
         this.villager.setCustomName(this.name);
         this.villager.setCustomNameVisible(true);
         this.villager.setAI(false);
+        this.villager.setSilent(false);
         this.villager.setCanPickupItems(false);
         this.villager.setCollidable(false);
     }

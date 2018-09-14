@@ -17,6 +17,7 @@ public class ListenersManager {
         pm.registerEvents(new InteractEvent(), main);
         pm.registerEvents(new ChatEvent(), main);
         pm.registerEvents(new DeathEvent(), main);
+        pm.registerEvents(new FoodLevel(), main);
 
         // --- WORLD ---//
         pm.registerEvents(new WorldEvents(), main);

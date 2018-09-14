@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class WorldEvents implements Listener {
 
@@ -27,5 +28,10 @@ public class WorldEvents implements Listener {
         if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
             e.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void onWeatherChange(final WeatherChangeEvent e) {
+        e.setCancelled(true);
     }
 }

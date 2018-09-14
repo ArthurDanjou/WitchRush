@@ -20,6 +20,7 @@ public class PlayerQuit implements Listener {
         e.setQuitMessage(null);
 
         witchPlayer.removePlayer();
+        WitchRush.get().getTeamManager().removePlayerAllTeam(player);
 
         if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
             e.setQuitMessage(

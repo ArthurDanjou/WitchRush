@@ -3,6 +3,7 @@ package net.berrygames.witchrush.game;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.PNJSpawner;
 import org.bukkit.Bukkit;
@@ -30,8 +31,16 @@ public class StartTask extends BukkitRunnable {
             }
             for(Player pls: Bukkit.getOnlinePlayers()){
                 pls.setGameMode(GameMode.SURVIVAL);
+
+                //Join si il a pas de team
+                if(WitchRush.get().getTeamManager().getPlayerTeam(pls) == null){
+                    WitchRush.get().getTeamManager().addPlayerInRandomTeam(pls);
+                }
+
+                //Tp aux bases
+                TeamInfos teamInfos = WitchRush.get().getTeamManager().getPlayerTeam(pls);
+                WitchPlayer.get(pls).teleportToBase();
             }
-            //TP Player
 
             //Spawn SHOP
             new PNJSpawner("§6§lSHOP", TeamInfos.BLEU, Locations.SHOP_BLEU.getLocation());
