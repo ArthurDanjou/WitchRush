@@ -3,6 +3,7 @@ package net.berrygames.witchrush;
 import net.berrygames.witchrush.commands.CommandsManager;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.listeners.ListenersManager;
+import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -13,12 +14,14 @@ public class WitchRush extends JavaPlugin {
     private static WitchRush instance;
 
     private GameState gameState;
+    private TeamManager teamManager;
 
     @Override
     public void onEnable() {
         instance = this;
 
         this.gameState = GameState.WAITING;
+        this.teamManager = new TeamManager();
 
         new CommandsManager().register(this);
         new ListenersManager().register(this);
@@ -50,6 +53,9 @@ public class WitchRush extends JavaPlugin {
     }
     public GameState getState(){
         return this.gameState;
+    }
+    public TeamManager getTeamManager() {
+        return teamManager;
     }
 
     public static WitchRush get() {

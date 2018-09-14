@@ -2,8 +2,9 @@ package net.berrygames.witchrush.game;
 
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
+import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.tools.Locations;
-import net.berrygames.witchrush.tools.SpawnPNJ;
+import net.berrygames.witchrush.tools.PNJSpawner;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -33,16 +34,16 @@ public class StartTask extends BukkitRunnable {
             //TP Player
 
             //Spawn SHOP
-            new SpawnPNJ("S", Locations.SHOP_BLEU.getLocation()).spawn();
-            new SpawnPNJ("S", Locations.SHOP_ROUGE.getLocation()).spawn();
-            new SpawnPNJ("S", Locations.SHOP_VERT.getLocation()).spawn();
-            new SpawnPNJ("S", Locations.SHOP_JAUNE.getLocation()).spawn();
+            new PNJSpawner("§6§lSHOP", TeamInfos.BLEU, Locations.SHOP_BLEU.getLocation());
+            new PNJSpawner("§6§lSHOP", TeamInfos.ROUGE, Locations.SHOP_ROUGE.getLocation());
+            new PNJSpawner("§6§lSHOP", TeamInfos.VERT, Locations.SHOP_VERT.getLocation());
+            new PNJSpawner("§6§lSHOP", TeamInfos.JAUNE, Locations.SHOP_JAUNE.getLocation());
 
             //Spawn UPGRADE
-            new SpawnPNJ("U", Locations.UPGRADE_BLEU.getLocation()).spawn();
-            new SpawnPNJ("U", Locations.UPGRADE_ROUGE.getLocation()).spawn();
-            new SpawnPNJ("U", Locations.UPGRADE_VERT.getLocation()).spawn();
-            new SpawnPNJ("U", Locations.UPGRADE_JAUNE.getLocation()).spawn();
+            new PNJSpawner("§b§LUPGRADE", TeamInfos.JAUNE, Locations.UPGRADE_BLEU.getLocation());
+            new PNJSpawner("§b§LUPGRADE", TeamInfos.ROUGE, Locations.UPGRADE_ROUGE.getLocation());
+            new PNJSpawner("§b§LUPGRADE", TeamInfos.VERT, Locations.UPGRADE_VERT.getLocation());
+            new PNJSpawner("§b§LUPGRADE", TeamInfos.JAUNE, Locations.UPGRADE_JAUNE.getLocation());
 
         }
 

@@ -3,7 +3,9 @@ package net.berrygames.witchrush.listeners.players;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.tools.DeadPlayer;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,15 +24,25 @@ public class DeathEvent implements Listener {
             e.setDeathMessage(null);
             player.kickPlayer("ENFAIT TOI T'ES FORT PCQ NORMALEMENT YA PAS CA");
         } else {
-            e.setDeathMessage(WitchRush.prefix()+"§e"+player.getName()+"§d a été tué par §e"+ killer.getName());
-            new DeadPlayer(player);
-            player.setHealth(20);
+            if(killer.getType().equals(EntityType.PLAYER)){
+                TeamInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
+                e.setDeathMessage(WitchRush.prefix()+team.getChatColor()+player.getName()+"§d a été tué par "+team.getChatColor()+ killer.getName());
+                new DeadPlayer(player);
+                player.setHealth(20);
 
-            killer.sendMessage("§dVous avez tué §e"+player.getName());
-            witchKiller.setKills(witchKiller.getKills()+1);
+                killer.sendMessage("§dVous avez tué §e"+player.getName());
+                witchKiller.setKills(witchKiller.getKills()+1);
 
-            player.sendMessage("§e"+killer.getName()+" §dvous avez tué");
-            witchPlayer.setDeath(witchPlayer.getDeath()+1);
+                player.sendMessage("§e"+killer.getName()+" §dvous avez tué");
+                witchPlayer.setDeath(witchPlayer.getDeath()+1);
+            } else {
+                TeamInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
+                e.setDeathMessage(WitchRush.prefix()+team.getChatColor()+player.getName()+"§d est mort");
+                new DeadPlayer(player);
+                player.setHealth(20);
+                player.sendMessage("§d Vous êtes mort !");
+                witchPlayer.setDeath(witchPlayer.getDeath()+1);
+            }
         }
     }
 

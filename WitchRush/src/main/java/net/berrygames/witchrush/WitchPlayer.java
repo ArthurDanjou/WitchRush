@@ -1,8 +1,10 @@
 package net.berrygames.witchrush;
 
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.tools.ItemFactory;
 import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.Color;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -45,6 +47,16 @@ public class WitchPlayer {
 
     public void sendLobby(){
 
+    }
+
+    public void sendWaitingStuff() {
+        player.getInventory().setItem(8, new ItemFactory(Material.BED)
+                .withName("§cRetour au Hub !")
+                .withColor(DyeColor.RED)
+                .done());
+        player.getInventory().setItem(4, new ItemFactory(Material.ARMOR_STAND)
+                .withName("§dTeams")
+                .done());
     }
 
     public void sendGameScoreboard(){
@@ -102,5 +114,4 @@ public class WitchPlayer {
     static {
         WitchPlayer.witchMap = new HashMap<>();
     }
-
 }

@@ -31,6 +31,7 @@ public class PlayerJoin implements Listener {
             player.setLevel(0);
             player.setHealth(20);
             player.setFoodLevel(20);
+            witchPlayer.sendWaitingStuff();
             witchPlayer.teleportPlayer();
             witchPlayer.sendGameScoreboard();
 
