@@ -26,7 +26,7 @@ public class PlayerJoin implements Listener {
                             "§8/§d16§7)");
 
             player.sendTitle("§5WitchRush", "§DLe rush avec des Witchs");
-
+            player.getInventory().clear();
             player.setGameMode(GameMode.ADVENTURE);
             player.setLevel(0);
             player.setHealth(20);

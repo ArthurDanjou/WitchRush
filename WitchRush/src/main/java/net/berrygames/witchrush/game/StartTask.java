@@ -1,9 +1,11 @@
 package net.berrygames.witchrush.game;
 
+import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.SpawnPNJ;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -16,10 +18,18 @@ public class StartTask extends BukkitRunnable {
 
         if(timer == 0){
             new NoPVPTask().runTaskTimer(WitchRush.get(), 0, 20);
+            WitchRush.get().setState(GameState.NOWITCH);
+
             Bukkit.broadcastMessage(WitchRush.prefix()+"§dLa partie commence !");
-            Bukkit.broadcastMessage(WitchRush.prefix()+"§Vous avez §63minutes §dpour vous préparez.");
+            Bukkit.broadcastMessage(WitchRush.prefix()+"§dVous avez §63minutes §dpour vous préparez.");
             cancel();
 
+            for(WitchPlayer witchPlayer : WitchPlayer.getwitchMap().values()){
+                witchPlayer.giveStuff();
+            }
+            for(Player pls: Bukkit.getOnlinePlayers()){
+                pls.setGameMode(GameMode.SURVIVAL);
+            }
             //TP Player
 
             //Spawn SHOP

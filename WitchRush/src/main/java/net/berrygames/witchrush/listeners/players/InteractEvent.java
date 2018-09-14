@@ -2,6 +2,7 @@ package net.berrygames.witchrush.listeners.players;
 
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -40,10 +41,17 @@ public class InteractEvent implements Listener {
             e.setCancelled(true);
         }
         if(e.getRightClicked().getName().equals("S")){
+            e.setCancelled(true);
             player.sendMessage("s");
         }
         if(e.getRightClicked().getName().equals("U")){
+            e.setCancelled(true);
             player.sendMessage("u");
+        }
+        if(e.getRightClicked().getType().equals(EntityType.WITCH)){
+            //detect player's witch
+
+            //damage other witch
         }
     }
 

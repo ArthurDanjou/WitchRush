@@ -9,6 +9,10 @@ public class PVPTask extends BukkitRunnable {
     @Override
     public void run() {
 
+        if(timer == 0){
+            new DeathMatchTask();
+            cancel();
+        }
 
         timer--;
     }

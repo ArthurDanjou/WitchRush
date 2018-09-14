@@ -57,6 +57,6 @@ public class WitchRush extends JavaPlugin {
     }
 
     public static String prefix(){
-        return "§5§lWitchRush §8§l\u258f §d";
+        return "§5§lWitchRush §d§l\u258f §d";
     }
 }

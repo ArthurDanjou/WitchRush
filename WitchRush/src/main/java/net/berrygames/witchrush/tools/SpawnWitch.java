@@ -22,7 +22,6 @@ public class SpawnWitch {
             w.setCustomNameVisible(true);
             w.setSilent(true);
             w.setGravity(false);
-            w.setInvulnerable(true);
         });
     }
 

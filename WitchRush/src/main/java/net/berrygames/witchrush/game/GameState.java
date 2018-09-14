@@ -4,7 +4,7 @@ public enum GameState {
 
     WAITING,
     STARTING,
-    NOPVP,
+    NOWITCH,
     PVP,
     DEATH_MATCH,
     FINISHING,

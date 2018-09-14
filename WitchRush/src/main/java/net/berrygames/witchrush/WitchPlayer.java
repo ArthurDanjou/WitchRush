@@ -38,7 +38,9 @@ public class WitchPlayer {
     }
 
     public void giveStuff(){
-
+        player.getInventory().clear();
+        ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
+        player.getInventory().setItem(0, sword);
     }
 
     public void sendLobby(){
@@ -46,10 +48,6 @@ public class WitchPlayer {
     }
 
     public void sendGameScoreboard(){
-
-    }
-
-    public void applySpectator() {
 
     }
 
