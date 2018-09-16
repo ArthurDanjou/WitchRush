@@ -17,12 +17,12 @@ public class WitchBoss {
         this.teamInfos = teamInfos;
         this.location = location;
         this.witch = (Witch) Bukkit.getWorld("world").spawnEntity(location, EntityType.WITCH);
-        this.life = 100;
+        this.life = 500;
         this.witch.setMaxHealth(this.life);
         this.witch.setHealth(this.life);
         this.witch.setCustomNameVisible(false);
         this.witch.setAI(false);
-        this.witch.setSilent(false);
+        this.witch.setSilent(true);
         this.witch.setCanPickupItems(false);
         this.witch.setCollidable(false);
     }

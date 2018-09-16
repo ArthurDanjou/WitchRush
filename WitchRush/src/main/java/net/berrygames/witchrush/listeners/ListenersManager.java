@@ -18,6 +18,8 @@ public class ListenersManager {
         pm.registerEvents(new ChatEvent(), main);
         pm.registerEvents(new DeathEvent(), main);
         pm.registerEvents(new FoodLevel(), main);
+        pm.registerEvents(new InventoryClick(), main);
+        pm.registerEvents(new WitchEvent(), main);
 
         // --- WORLD ---//
         pm.registerEvents(new WorldEvents(), main);

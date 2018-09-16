@@ -3,8 +3,8 @@ package net.berrygames.witchrush.listeners.players;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.game.StartTask;
-import org.bukkit.ChatColor;
+import net.berrygames.witchrush.game.task.StartTask;
+import net.berrygames.witchrush.tools.TeamsTagsManager;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -29,11 +29,14 @@ public class PlayerJoin implements Listener {
             player.getInventory().clear();
             player.setGameMode(GameMode.ADVENTURE);
             player.setLevel(0);
+            player.setExp(0f);
             player.setHealth(20);
             player.setFoodLevel(20);
             witchPlayer.sendWaitingStuff();
             witchPlayer.teleportPlayer();
             witchPlayer.sendGameScoreboard();
+
+            TeamsTagsManager.setNameTag(player, player.getName(), "§7");
 
             if(WitchPlayer.getwitchMap().size() >= 4){
                 new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
@@ -45,6 +48,8 @@ public class PlayerJoin implements Listener {
             player.sendMessage("§8(Spectateur) §7Vous êtes spectateur pour cette partie.");
             player.sendMessage("§7Seul les autres spectateurs voient vos messages !");
             player.sendMessage(" ");
+
+            TeamsTagsManager.setNameTag(player, player.getName(), "§8(Spec)§7 ");
 
             e.setJoinMessage(null);
             player.setGameMode(GameMode.SPECTATOR);

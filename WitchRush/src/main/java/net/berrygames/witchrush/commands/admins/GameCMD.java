@@ -3,7 +3,7 @@ package net.berrygames.witchrush.commands.admins;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.game.StartTask;
+import net.berrygames.witchrush.game.task.StartTask;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

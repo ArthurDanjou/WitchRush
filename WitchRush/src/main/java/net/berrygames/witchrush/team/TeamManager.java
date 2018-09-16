@@ -1,7 +1,7 @@
 package net.berrygames.witchrush.team;
 
+import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.WitchBoss;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -45,6 +45,21 @@ public class TeamManager {
 
     public void addPlayerInRandomTeam(final Player player) {
 
+    }
+
+    public Locations getBossLocation(final TeamInfos teamInfos) {
+        switch (teamInfos){
+            case ROUGE:
+                return Locations.WITCH_ROUGE;
+            case BLEU:
+                return Locations.WITCH_BLEU;
+            case VERT:
+                return Locations.WITCH_VERT;
+            case JAUNE:
+                return Locations.WITCH_JAUNE;
+        }
+
+        return null;
     }
 
     public boolean isPlayerInTeam(final Player player, final TeamInfos teamInfos) {

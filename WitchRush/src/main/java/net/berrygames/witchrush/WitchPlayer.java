@@ -2,6 +2,7 @@ package net.berrygames.witchrush;
 
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.ItemFactory;
 import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.Color;
@@ -40,20 +41,24 @@ public class WitchPlayer {
         }
     }
 
-    public Locations teleportToBase(){
+    public void teleportToBase(){
+        TeamManager teamManager = WitchRush.get().getTeamManager();
         for(TeamInfos teamInfos : TeamInfos.values()){
-            switch (teamInfos){
+            switch (teamManager.getPlayerTeam(player)){
                 case ROUGE:
-                    return Locations.PLAYER_SPAWN_ROUGE;
-                case BLEU:
-                    return Locations.PLAYER_SPAWN_BLEU;
+                    player.teleport(Locations.PLAYER_SPAWN_ROUGE.getLocation());
+                    break;
                 case VERT:
-                    return Locations.PLAYER_SPAWN_VERT;
+                    player.teleport(Locations.PLAYER_SPAWN_VERT.getLocation());
+                    break;
                 case JAUNE:
-                    return Locations.PLAYER_SPAWN_JAUNE;
+                    player.teleport(Locations.PLAYER_SPAWN_JAUNE.getLocation());
+                    break;
+                case BLEU:
+                    player.teleport(Locations.PLAYER_SPAWN_BLEU.getLocation());
+                    break;
             }
         }
-        return null;
     }
 
     public void giveStuff(){

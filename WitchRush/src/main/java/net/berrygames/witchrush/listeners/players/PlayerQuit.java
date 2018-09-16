@@ -3,7 +3,7 @@ package net.berrygames.witchrush.listeners.players;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.game.StartTask;
+import net.berrygames.witchrush.game.task.StartTask;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

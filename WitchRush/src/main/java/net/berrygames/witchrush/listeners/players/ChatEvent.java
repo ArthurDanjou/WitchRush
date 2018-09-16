@@ -37,7 +37,7 @@ public class ChatEvent implements Listener {
                     final TeamInfos teamInfos = WitchRush.get().getTeamManager().getPlayerTeam(player);
                     if(WitchRush.get().getTeamManager().getPlayerTeam(playerOnline).equals(teamInfos)){
                         playerOnline.sendMessage("§7["+teamInfos.getChatColor()+teamInfos.getTeamName()+"§7] §e"
-                                +player.getDisplayName()+"§7» §f"+message.replace("!",""));
+                                +player.getDisplayName()+" §7» §f"+message.replace("!"," "));
                     }
                 });
             }

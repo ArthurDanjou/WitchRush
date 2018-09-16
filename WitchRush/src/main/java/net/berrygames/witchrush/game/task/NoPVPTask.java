@@ -1,6 +1,7 @@
-package net.berrygames.witchrush.game;
+package net.berrygames.witchrush.game.task;
 
 import net.berrygames.witchrush.WitchRush;
+import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.WitchBoss;
@@ -23,6 +24,7 @@ public class NoPVPTask extends BukkitRunnable {
             new WitchBoss(TeamInfos.BLEU, Locations.WITCH_BLEU.getLocation());
             new WitchBoss(TeamInfos.VERT, Locations.WITCH_VERT.getLocation());
             new WitchBoss(TeamInfos.JAUNE, Locations.WITCH_JAUNE.getLocation());
+            new HealthRunnable().runTaskTimer(WitchRush.get(), 0L, 20L);
             cancel();
         }
         timer--;
