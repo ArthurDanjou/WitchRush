@@ -53,6 +53,7 @@ public class InteractEvent implements Listener {
         if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
             e.setCancelled(true);
         }
+        e.setCancelled(true);
         if(e.getRightClicked().getName().equals("S")){
             e.setCancelled(true);
             player.closeInventory();

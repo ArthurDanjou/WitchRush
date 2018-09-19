@@ -2,9 +2,8 @@ package net.berrygames.witchrush.game;
 
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
-import net.berrygames.witchrush.game.task.HealthRunnable;
 import net.berrygames.witchrush.game.task.NoPVPTask;
-import net.berrygames.witchrush.listeners.custom.GAGameStartEvent;
+import net.berrygames.witchrush.listeners.custom.GameStartEvent;
 import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.Locations;
@@ -28,7 +27,7 @@ public class GameManager {
             String startMessage = WitchRush.prefix()+"§dVous avez §63minutes §dpour vous préparez.";
             Bukkit.broadcastMessage(WitchRush.prefix()+"§dLa partie commence !");
             Bukkit.broadcastMessage(startMessage);
-            Bukkit.getServer().getPluginManager().callEvent(new GAGameStartEvent(startMessage));
+            Bukkit.getServer().getPluginManager().callEvent(new GameStartEvent(startMessage));
             this.loadPlayer();
 
             for(WitchPlayer witchPlayer : WitchPlayer.getwitchMap().values()){
@@ -76,7 +75,7 @@ public class GameManager {
             playerOnline.setLevel(0);
             playerOnline.setGameMode(GameMode.SURVIVAL);
             witchPlayer.giveStuff();
-            TeamsTagsManager.setNameTag(playerOnline, teamInfos.getIDName(), teamInfos.getChatColor()+teamInfos.getTeamName());
+            TeamsTagsManager.setNameTag(playerOnline, teamInfos.getIDName(), teamInfos.getChatColor()+teamInfos.getTeamName()+" ");
             witchPlayer.sendGameScoreboard();
         });
     }

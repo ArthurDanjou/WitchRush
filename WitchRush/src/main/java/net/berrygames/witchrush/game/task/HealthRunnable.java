@@ -15,17 +15,17 @@ import java.util.Map;
 public class HealthRunnable extends BukkitRunnable {
 
     public Map<TeamInfos, ArmorStand> arMap;
+    private TeamManager teamManager;
 
     public HealthRunnable() {
         this.arMap = new HashMap<>();
+        teamManager = WitchRush.get().getTeamManager();
     }
 
     public void run() {
-        final TeamManager teamManager = WitchRush.get().getTeamManager();
-        for (final TeamInfos teamInfos : TeamInfos.values()) {
-            if (this.arMap.get(teamInfos) == null) {
-                final Location bossLocation = teamManager.getBossLocation(teamInfos).getLocation();
-                final ArmorStand armorStand = (ArmorStand) Bukkit.getWorld("world").spawnEntity(bossLocation, EntityType.ARMOR_STAND);
+        for(TeamInfos teamInfos : TeamInfos.values()){
+            if(arMap.get(teamInfos) == null){
+                final ArmorStand armorStand = (ArmorStand) Bukkit.getWorld("world").spawnEntity(teamManager.getBossLocation(teamInfos), EntityType.ARMOR_STAND);
                 armorStand.setAI(false);
                 armorStand.setCustomNameVisible(true);
                 armorStand.setGravity(false);
@@ -34,7 +34,7 @@ public class HealthRunnable extends BukkitRunnable {
                 this.arMap.put(teamInfos, armorStand);
                 return;
             }
-            this.arMap.get(teamInfos).setCustomName("§5§lVie: §c"+teamManager.getTeamBoss(teamInfos).getLife());
+            arMap.get(teamInfos).setCustomName("§5§lVie: §c"+teamManager.getTeamBoss(teamInfos).getLife());
         }
     }
 }

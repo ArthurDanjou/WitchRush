@@ -1,6 +1,8 @@
 package net.berrygames.witchrush.tools;
 
+import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
@@ -10,12 +12,15 @@ public class WitchBoss {
 
     private TeamInfos teamInfos;
     private Location location;
+    private TeamManager manager;
     private Witch witch;
-    private double life;
+    private int life;
 
     public WitchBoss(final TeamInfos teamInfos, final Location location) {
         this.teamInfos = teamInfos;
         this.location = location;
+        this.manager = WitchRush.get().getTeamManager();
+        manager.getBossEntityMap().put(teamInfos, this);
         this.witch = (Witch) Bukkit.getWorld("world").spawnEntity(location, EntityType.WITCH);
         this.life = 500;
         this.witch.setMaxHealth(this.life);
@@ -39,8 +44,12 @@ public class WitchBoss {
         return this.witch;
     }
 
-    public double getLife() {
+    public int getLife() {
         return this.life;
+    }
+
+    public void setLife(int life){
+        this.life = life;
     }
 
 

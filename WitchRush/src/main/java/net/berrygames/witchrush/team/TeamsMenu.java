@@ -15,7 +15,7 @@ public class TeamsMenu {
 
     public TeamsMenu(Player player) {
         this.player = player;
-        inventory = Bukkit.createInventory(null, 4 * 9, WitchRush.prefix()+" Teams");
+        inventory = Bukkit.createInventory(null, 4 * 9, WitchRush.prefix()+"Teams");
 
         for(int i = 0; i < 9; i++){
             inventory.setItem(i, new ItemFactory(Material.STAINED_GLASS_PANE).withName("").withColor(DyeColor.PURPLE).done());

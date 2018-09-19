@@ -33,14 +33,6 @@ public class WitchPlayer {
         this.death = 0;
     }
 
-    public void teleportPlayer(){
-        if(spectator){
-            player.teleport(Locations.SPAWN_SPECTATORS.getLocation());
-        } else {
-            player.teleport(Locations.PLAYER_SPAWN_WAITING_ROOM.getLocation());
-        }
-    }
-
     public void teleportToBase(){
         TeamManager teamManager = WitchRush.get().getTeamManager();
         for(TeamInfos teamInfos : TeamInfos.values()){

@@ -1,13 +1,12 @@
 package net.berrygames.witchrush.team;
 
+import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.WitchBoss;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TeamManager {
 
@@ -21,7 +20,7 @@ public class TeamManager {
 
     public void addPlayerTeam(final Player player, final TeamInfos teamInfos) {
         if (this.playerTeamList.get(teamInfos) == null) {
-            this.playerTeamList.put(teamInfos, new ArrayList<Player>());
+            this.playerTeamList.put(teamInfos, new ArrayList<>());
         }
         if (!this.teamIsFull(teamInfos)) {
             this.removePlayerAllTeam(player);
@@ -44,19 +43,28 @@ public class TeamManager {
     }
 
     public void addPlayerInRandomTeam(final Player player) {
-
+        Arrays.stream(TeamInfos.values())
+                .filter(teams -> teamIsFull(teams))
+                .filter(teams -> (WitchPlayer.getwitchMap().size() / 4) > getTeamPlayerCount(teams)/)
     }
 
-    public Locations getBossLocation(final TeamInfos teamInfos) {
+    public boolean isInLife(final TeamInfos teamInfos) {
+        if(getBossEntityMap().containsKey(teamInfos)){
+            return true;
+        }
+        return false;
+    }
+
+    public Location getBossLocation(final TeamInfos teamInfos) {
         switch (teamInfos){
             case ROUGE:
-                return Locations.WITCH_ROUGE;
+                return Locations.WITCH_ROUGE.getLocation();
             case BLEU:
-                return Locations.WITCH_BLEU;
+                return Locations.WITCH_BLEU.getLocation();
             case VERT:
-                return Locations.WITCH_VERT;
+                return Locations.WITCH_VERT.getLocation();
             case JAUNE:
-                return Locations.WITCH_JAUNE;
+                return Locations.WITCH_JAUNE.getLocation();
         }
 
         return null;

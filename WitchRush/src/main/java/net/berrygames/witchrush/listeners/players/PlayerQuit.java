@@ -37,7 +37,6 @@ public class PlayerQuit implements Listener {
             if(!new StartTask().isCancelled()){
                 new StartTask().cancel();
             }
-
         }
     }
 

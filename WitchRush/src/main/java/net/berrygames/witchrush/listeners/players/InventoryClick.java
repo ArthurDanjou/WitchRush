@@ -23,43 +23,44 @@ public class InventoryClick implements Listener {
         ItemStack item = e.getCurrentItem();
         Inventory inv = e.getClickedInventory();
         TeamManager teamManager = WitchRush.get().getTeamManager();
-        if(!inv.getTitle().equals(WitchRush.prefix()+" Teams")) return;
-        e.setCancelled(true);
-        switch (item.getType()){
-            case WOOL:
-                final TeamInfos teamInfos = TeamInfos.getTeamInfosByShortData(e.getCurrentItem().getDurability());
-                if (teamManager.isPlayerInTeam(player, teamInfos)) {
-                    player.sendMessage(WitchRush.prefix()+"Vous êtes déjà dans cette team !");
-                    player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+        if(inv.getTitle().equals(WitchRush.prefix()+"Teams")){
+            e.setCancelled(true);
+            switch (item.getType()){
+                case WOOL:
+                    final TeamInfos teamInfos = TeamInfos.getTeamInfosByShortData(e.getCurrentItem().getDurability());
+                    if (teamManager.isPlayerInTeam(player, teamInfos)) {
+                        player.sendMessage(WitchRush.prefix()+"Vous êtes déjà dans cette team !");
+                        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                        player.closeInventory();
+                        return;
+                    }
+                    if (teamManager.teamIsFull(teamInfos)) {
+                        player.sendMessage(WitchRush.prefix()+"L'équipe est pleine !");
+                        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                        player.closeInventory();
+                        return;
+                    }
+                    teamManager.removePlayerAllTeam(player);
+                    player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
+                    teamManager.addPlayerTeam(player, teamInfos);
+                    TeamInfos infos1 = teamManager.getPlayerTeam(player);
+                    player.sendMessage(WitchRush.prefix()+"Vous avez rejoint la team "+infos1.getChatColor()+infos1.getTeamName());
+                    TeamsTagsManager.setNameTag(player, player.getName(), infos1.getChatColor()+infos1.getTeamName()+" ");
                     player.closeInventory();
-                    return;
-                }
-                if (teamManager.teamIsFull(teamInfos)) {
-                    player.sendMessage(WitchRush.prefix()+"L'équipe est pleine !");
-                    player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
+                    break;
+                case BARRIER:
                     player.closeInventory();
-                    return;
-                }
-                teamManager.removePlayerAllTeam(player);
-                player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
-                teamManager.addPlayerTeam(player, teamInfos);
-                TeamInfos infos1 = teamManager.getPlayerTeam(player);
-                player.sendMessage(WitchRush.prefix()+"Vous avez rejoint la team "+infos1.getChatColor()+infos1.getTeamName());
-                TeamsTagsManager.setNameTag(player, player.getName(), infos1.getChatColor()+infos1.getTeamName()+" ");
-                player.closeInventory();
-                break;
-            case BARRIER:
-                player.closeInventory();
-                break;
-            case DOUBLE_PLANT:
-                player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
-                teamManager.removePlayerAllTeam(player);
-                teamManager.addPlayerInRandomTeam(player);
-                TeamInfos infos2 = teamManager.getPlayerTeam(player);
-                player.sendMessage(WitchRush.prefix()+"Vous avez rejoint la team "+infos2.getChatColor()+infos2.getTeamName()+" ");
-                TeamsTagsManager.setNameTag(player, player.getName(), infos2.getChatColor());
-                player.closeInventory();
-                break;
+                    break;
+                case DOUBLE_PLANT:
+                    player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
+                    teamManager.removePlayerAllTeam(player);
+                    teamManager.addPlayerInRandomTeam(player);
+                    TeamInfos infos2 = teamManager.getPlayerTeam(player);
+                    player.sendMessage(WitchRush.prefix()+"Vous avez rejoint la team "+infos2.getChatColor()+infos2.getTeamName()+" ");
+                    TeamsTagsManager.setNameTag(player, player.getName(), infos2.getChatColor());
+                    player.closeInventory();
+                    break;
+            }
         }
     }
 

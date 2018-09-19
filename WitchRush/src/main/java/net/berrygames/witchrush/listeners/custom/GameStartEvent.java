@@ -3,17 +3,17 @@ package net.berrygames.witchrush.listeners.custom;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class GAGameStartEvent extends Event {
+public class GameStartEvent extends Event {
 
     public static final HandlerList handlers;
     private String message;
 
-    public GAGameStartEvent(final String message) {
+    public GameStartEvent(final String message) {
         this.message = message;
     }
 
     public HandlerList getHandlers() {
-        return GAGameStartEvent.handlers;
+        return GameStartEvent.handlers;
     }
 
     public String getStartMessage() {
