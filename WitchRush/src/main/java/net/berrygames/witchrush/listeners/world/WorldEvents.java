@@ -13,25 +13,67 @@ public class WorldEvents implements Listener {
 
     @EventHandler
     public void place(BlockPlaceEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (WitchRush.get().getState()){
+            case WAITING:
+                e.setCancelled(true);
+                break;
+            case STARTING:
+                e.setCancelled(true);
+                break;
+            case NOWITCH:
+                e.setCancelled(false);
+                break;
+            case PVP:
+                e.setCancelled(false);
+                break;
+            case FINISHING:
+                e.setCancelled(true);
+                break;
         }
+
     }
     @EventHandler
-    public void breake(BlockBreakEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+    public void breakB(BlockBreakEvent e){
+        switch (WitchRush.get().getState()){
+            case WAITING:
+                e.setCancelled(true);
+                break;
+            case STARTING:
+                e.setCancelled(true);
+                break;
+            case NOWITCH:
+                e.setCancelled(false);
+                break;
+            case PVP:
+                e.setCancelled(false);
+                break;
+            case FINISHING:
+                e.setCancelled(true);
+                break;
         }
     }
     @EventHandler
     public void damage(BlockDamageEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (WitchRush.get().getState()){
+            case WAITING:
+                e.setCancelled(true);
+                break;
+            case STARTING:
+                e.setCancelled(true);
+                break;
+            case NOWITCH:
+                e.setCancelled(false);
+                break;
+            case PVP:
+                e.setCancelled(false);
+                break;
+            case FINISHING:
+                e.setCancelled(true);
+                break;
         }
     }
-
     @EventHandler
-    public void onWeatherChange(final WeatherChangeEvent e) {
+    public void onWeatherChange(final WeatherChangeEvent e){
         e.setCancelled(true);
     }
 }

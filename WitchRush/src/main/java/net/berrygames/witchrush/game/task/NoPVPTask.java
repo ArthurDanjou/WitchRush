@@ -10,7 +10,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class NoPVPTask extends BukkitRunnable {
 
-    private int timer = 30;
+    private int timer = 3 * 20;
 
     @Override
     public void run() {

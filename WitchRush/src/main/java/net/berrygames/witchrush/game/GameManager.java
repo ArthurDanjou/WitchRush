@@ -3,7 +3,6 @@ package net.berrygames.witchrush.game;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.task.NoPVPTask;
-import net.berrygames.witchrush.listeners.custom.GameStartEvent;
 import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.Locations;
@@ -24,25 +23,14 @@ public class GameManager {
         if (!(this.isStart = false)) {
             this.isStart = true;
             WitchRush.get().setState(GameState.NOWITCH);
-            String startMessage = WitchRush.prefix()+"§dVous avez §63minutes §dpour vous préparez.";
-            Bukkit.broadcastMessage(WitchRush.prefix()+"§dLa partie commence !");
-            Bukkit.broadcastMessage(startMessage);
-            Bukkit.getServer().getPluginManager().callEvent(new GameStartEvent(startMessage));
-            this.loadPlayer();
 
-            for(WitchPlayer witchPlayer : WitchPlayer.getwitchMap().values()){
-                witchPlayer.giveStuff();
-            }
             for(Player pls: Bukkit.getOnlinePlayers()){
                 pls.setGameMode(GameMode.SURVIVAL);
-
                 pls.playSound(pls.getLocation(), Sound.ENTITY_WITHER_SPAWN, 1, 1);
-
-                //Join si il a pas de team
-                if(WitchRush.get().getTeamManager().getPlayerTeam(pls) == null){
-                    WitchRush.get().getTeamManager().addPlayerInRandomTeam(pls);
-                }
             }
+            Bukkit.broadcastMessage(WitchRush.prefix()+"§dLa partie commence !");
+            Bukkit.broadcastMessage(WitchRush.prefix()+"§dVous avez §63minutes §dpour vous préparez.");
+            this.loadPlayer();
 
             //Spawn SHOP
             new PNJSpawner("§6§lSHOP", TeamInfos.BLEU, Locations.SHOP_BLEU.getLocation());

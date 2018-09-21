@@ -23,6 +23,7 @@ public class WitchPlayer {
     private Player player;
     private boolean spectator;
     private int kills, death;
+    private TeamManager manager;
 
     public WitchPlayer(Player player) {
         this.player = player;
@@ -31,31 +32,34 @@ public class WitchPlayer {
                         !WitchRush.get().getState().equals(GameState.WAITING);
         this.kills = 0;
         this.death = 0;
+        this.manager = WitchRush.get().getTeamManager();
     }
 
     public void teleportToBase(){
         TeamManager teamManager = WitchRush.get().getTeamManager();
-        for(TeamInfos teamInfos : TeamInfos.values()){
-            switch (teamManager.getPlayerTeam(player)){
-                case ROUGE:
-                    player.teleport(Locations.PLAYER_SPAWN_ROUGE.getLocation());
-                    break;
-                case VERT:
-                    player.teleport(Locations.PLAYER_SPAWN_VERT.getLocation());
-                    break;
-                case JAUNE:
-                    player.teleport(Locations.PLAYER_SPAWN_JAUNE.getLocation());
-                    break;
-                case BLEU:
-                    player.teleport(Locations.PLAYER_SPAWN_BLEU.getLocation());
-                    break;
-            }
+        switch (teamManager.getPlayerTeam(player)){
+            case ROUGE:
+                player.teleport(Locations.PLAYER_SPAWN_ROUGE.getLocation());
+                break;
+            case VERT:
+                player.teleport(Locations.PLAYER_SPAWN_VERT.getLocation());
+                break;
+            case JAUNE:
+                player.teleport(Locations.PLAYER_SPAWN_JAUNE.getLocation());
+                break;
+            case BLEU:
+                player.teleport(Locations.PLAYER_SPAWN_BLEU.getLocation());
+                break;
         }
     }
 
     public void giveStuff(){
         player.getInventory().clear();
         ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
+        player.getInventory().setHelmet(getHelmetColor(Material.LEATHER_HELMET, manager.getPlayerTeam(player).getColor()));
+        player.getInventory().setChestplate(getHelmetColor(Material.LEATHER_CHESTPLATE, manager.getPlayerTeam(player).getColor()));
+        player.getInventory().setLeggings(getHelmetColor(Material.LEATHER_LEGGINGS, manager.getPlayerTeam(player).getColor()));
+        player.getInventory().setBoots(getHelmetColor(Material.LEATHER_BOOTS, manager.getPlayerTeam(player).getColor()));
         player.getInventory().setItem(0, sword);
     }
 

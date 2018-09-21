@@ -1,23 +1,27 @@
 package net.berrygames.witchrush.team;
 
+import org.bukkit.Color;
+
 public enum TeamInfos {
 
-    VERT("Vert", "Vert", "§a", (short)13),
-    BLEU("Bleu", "Bleu", "§b", (short)11),
-    JAUNE("Jaune", "Jaune", "§e", (short)4),
-    ROUGE("Rouge", "Rouge", "§c", (short)14),
+    VERT("Vert", "Vert", "§a", (short)13, Color.GREEN),
+    BLEU("Bleu", "Bleu", "§b", (short)11, Color.BLUE),
+    JAUNE("Jaune", "Jaune", "§e", (short)4, Color.YELLOW),
+    ROUGE("Rouge", "Rouge", "§c", (short)14, Color.RED),
     ;
 
     private String IDName;
     private String teamName;
     private String chatColor;
     private short dataClay;
+    private Color color;
 
-    TeamInfos(String IDName, String teamName, String chatColor, short dataClay) {
+    TeamInfos(String IDName, String teamName, String chatColor, short dataClay, Color color) {
         this.IDName = IDName;
         this.teamName = teamName;
         this.chatColor = chatColor;
         this.dataClay = dataClay;
+        this.color = color;
     }
 
     public String getIDName() {
@@ -34,6 +38,10 @@ public enum TeamInfos {
 
     public short getDataClay() {
         return dataClay;
+    }
+
+    public Color getColor() {
+        return color;
     }
 
     public static TeamInfos getTeamInfosByIDName(final String ID) {

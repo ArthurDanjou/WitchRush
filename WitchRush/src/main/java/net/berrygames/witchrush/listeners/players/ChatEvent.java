@@ -22,13 +22,12 @@ public class ChatEvent implements Listener {
         } else if(witchPlayer.isSpectator()){
             e.setCancelled(true);
             for(WitchPlayer pls : WitchPlayer.getwitchMap().values()){
-                if(pls.isSpectator()){
-                    for(Player players : Bukkit.getOnlinePlayers()){
+                for(Player players : Bukkit.getOnlinePlayers()){
+                    if(pls.isSpectator()){
                         players.sendMessage("§7[Spectateur] §8"+player.getName()+" §7» "+e.getMessage());
                     }
                 }
             }
-            //players.sendMessage("§7[Spectateur] §8"+player.getName()+" §7» "+e.getMessage());
         } else {
             String message = e.getMessage();
             if(message.toLowerCase().startsWith("!")){
@@ -40,7 +39,7 @@ public class ChatEvent implements Listener {
                     if(WitchRush.get().getTeamManager().getPlayerTeam(playerOnline).equals(teamInfos)){
                         playerOnline.sendMessage("§7["+teamInfos.getChatColor()+teamInfos.getTeamName()+"§7] "
                                 +WitchRush.get().getTeamManager().getPlayerTeam(playerOnline).getChatColor()
-                                +player.getDisplayName()+" §7» §f"+message.replace("!"," "));
+                                +player.getDisplayName()+" §7» §f"+message.replace("!",""));
                     }
                 });
             }

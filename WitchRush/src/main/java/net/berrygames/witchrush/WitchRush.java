@@ -15,6 +15,7 @@ public class WitchRush extends JavaPlugin {
 
     private GameState gameState;
     private TeamManager teamManager;
+    private boolean forcedStart;
 
     @Override
     public void onEnable() {
@@ -22,6 +23,7 @@ public class WitchRush extends JavaPlugin {
 
         this.gameState = GameState.WAITING;
         this.teamManager = new TeamManager();
+        this.forcedStart = false;
 
         new CommandsManager().register(this);
         new ListenersManager().register(this);
@@ -56,6 +58,12 @@ public class WitchRush extends JavaPlugin {
     }
     public TeamManager getTeamManager() {
         return teamManager;
+    }
+    public boolean isForcedStart() {
+        return forcedStart;
+    }
+    public void setForcedStart(boolean forcedStart) {
+        this.forcedStart = forcedStart;
     }
 
     public static WitchRush get() {

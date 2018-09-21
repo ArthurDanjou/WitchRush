@@ -2,6 +2,7 @@ package net.berrygames.witchrush.listeners;
 
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.listeners.players.*;
+import net.berrygames.witchrush.listeners.servers.PingServer;
 import net.berrygames.witchrush.listeners.world.WorldEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -19,10 +20,11 @@ public class ListenersManager {
         pm.registerEvents(new DeathEvent(), main);
         pm.registerEvents(new FoodLevel(), main);
         pm.registerEvents(new InventoryClick(), main);
-        pm.registerEvents(new WitchEvent(), main);
+        pm.registerEvents(new DamageEvent(), main);
 
         // --- WORLD ---//
         pm.registerEvents(new WorldEvents(), main);
+        pm.registerEvents(new PingServer(), main);
 
         System.out.println("Events register");
     }

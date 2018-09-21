@@ -54,10 +54,8 @@ public class InventoryClick implements Listener {
                 case DOUBLE_PLANT:
                     player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
                     teamManager.removePlayerAllTeam(player);
-                    teamManager.addPlayerInRandomTeam(player);
-                    TeamInfos infos2 = teamManager.getPlayerTeam(player);
-                    player.sendMessage(WitchRush.prefix()+"Vous avez rejoint la team "+infos2.getChatColor()+infos2.getTeamName()+" ");
-                    TeamsTagsManager.setNameTag(player, player.getName(), infos2.getChatColor());
+                    player.sendMessage(WitchRush.prefix()+"Vous serez dans une équipe au debut de la partie !");
+                    TeamsTagsManager.setNameTag(player, player.getName(), "§7");
                     player.closeInventory();
                     break;
             }

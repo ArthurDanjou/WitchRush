@@ -2,6 +2,7 @@ package net.berrygames.witchrush.game.task;
 
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameManager;
+import net.berrygames.witchrush.game.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -9,12 +10,20 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class StartTask extends BukkitRunnable {
 
-    private int timer = 30;
+    private int timer = WitchRush.get().isForcedStart() ? 30 : 120;
 
     @Override
     public void run() {
 
+        if (Bukkit.getOnlinePlayers().size() < 4 && !WitchRush.get().isForcedStart()) {
+            Bukkit.broadcastMessage(WitchRush.prefix()+"Il n'y a pas assez de joueurs pour lancer la partie !");
+            WitchRush.get().setState(GameState.WAITING);
+            this.cancel();
+            return;
+        }
+
         if(timer == 0){
+            WitchRush.get().getTeamManager().checkNoTeamPlayers();
             new GameManager();
             cancel();
         }

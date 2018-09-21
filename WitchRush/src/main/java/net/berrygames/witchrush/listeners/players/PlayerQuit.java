@@ -25,7 +25,7 @@ public class PlayerQuit implements Listener {
         if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
             e.setQuitMessage(
                     WitchRush.prefix()+"§e"+player.getName()+
-                            " §da rejoint la partie §7(§d"+
+                            " §da quitté la partie §7(§d"+
                             WitchPlayer.getwitchMap().size()+
                             "§8/§d16§7)");
         } else {
@@ -33,10 +33,9 @@ public class PlayerQuit implements Listener {
         }
 
         if(WitchPlayer.getwitchMap().size() < 4 && WitchRush.get().getState().equals(GameState.STARTING)){
+            if(WitchRush.get().isForcedStart())return;
             Bukkit.broadcastMessage(WitchRush.prefix()+"§CLe lancement de la partie est annulé. Il n'y a pas assez de joueurs !");
-            if(!new StartTask().isCancelled()){
-                new StartTask().cancel();
-            }
+            new StartTask().cancel();
         }
     }
 

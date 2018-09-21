@@ -1,5 +1,6 @@
 package net.berrygames.witchrush.commands.admins;
 
+import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.tools.PNJSpawner;
 import net.berrygames.witchrush.tools.Locations;
@@ -27,6 +28,11 @@ public class TestCMD implements CommandExecutor {
             new PNJSpawner("§b§LUPGRADE", TeamInfos.ROUGE, Locations.UPGRADE_ROUGE.getLocation());
             new PNJSpawner("§b§LUPGRADE", TeamInfos.VERT, Locations.UPGRADE_VERT.getLocation());
             new PNJSpawner("§b§LUPGRADE", TeamInfos.JAUNE, Locations.UPGRADE_JAUNE.getLocation());
+        }
+
+        if(args[0].equals("state")){
+            //Spawn UPGRADE
+            sender.sendMessage(WitchRush.get().getState().toString());
         }
 
         if(args[0].equals("w")){

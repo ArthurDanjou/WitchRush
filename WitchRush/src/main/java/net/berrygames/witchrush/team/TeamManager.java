@@ -1,8 +1,8 @@
 package net.berrygames.witchrush.team;
 
-import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.WitchBoss;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -43,9 +43,19 @@ public class TeamManager {
     }
 
     public void addPlayerInRandomTeam(final Player player) {
-        Arrays.stream(TeamInfos.values())
-                .filter(teams -> teamIsFull(teams))
-                .filter(teams -> (WitchPlayer.getwitchMap().size() / 4) > getTeamPlayerCount(teams)/)
+        TreeMap<TeamInfos, Player> teams = new TreeMap<>();
+        for(TeamInfos infos : TeamInfos.values()){
+            for(Player pls: Bukkit.getOnlinePlayers()){
+                if(!isPlayerInTeam(pls , infos)) teams.put(infos, pls);
+            }
+        }
+        if(!playerHaveTeam(player)) addPlayerTeam(player, teams.firstKey());
+    }
+
+    public void checkNoTeamPlayers() {
+        for(Player onlinePlayers : Bukkit.getOnlinePlayers()) {
+            if(!playerHaveTeam(onlinePlayers)) addPlayerInRandomTeam(onlinePlayers);
+        }
     }
 
     public boolean isInLife(final TeamInfos teamInfos) {

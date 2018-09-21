@@ -34,7 +34,12 @@ public class HealthRunnable extends BukkitRunnable {
                 this.arMap.put(teamInfos, armorStand);
                 return;
             }
-            arMap.get(teamInfos).setCustomName("§5§lVie: §c"+teamManager.getTeamBoss(teamInfos).getLife());
+            if(teamManager.isInLife(teamInfos)){
+                arMap.get(teamInfos).setCustomName(
+                        teamInfos.getChatColor()+teamInfos.getTeamName()
+                                + "§7 - "+teamInfos.getChatColor()+teamManager.getTeamBoss(teamInfos).getLife()
+                );
+            }
         }
     }
 }
