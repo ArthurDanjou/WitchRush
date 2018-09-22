@@ -10,6 +10,7 @@ public class PingServer implements Listener {
     @EventHandler
     public void ping(ServerListPingEvent e){
         e.setMotd(WitchRush.prefix()+WitchRush.get().getState());
+        e.setMaxPlayers(16);
     }
 
 }

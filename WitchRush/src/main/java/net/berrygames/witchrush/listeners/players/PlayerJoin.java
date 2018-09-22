@@ -35,7 +35,7 @@ public class PlayerJoin implements Listener {
             player.setFoodLevel(20);
             player.teleport(Locations.PLAYER_SPAWN_WAITING_ROOM.getLocation());
             witchPlayer.sendWaitingStuff();
-            witchPlayer.sendGameScoreboard();
+            witchPlayer.sendLobbyScoreboard();
 
             TeamsTagsManager.setNameTag(player, player.getName(), "§7");
 

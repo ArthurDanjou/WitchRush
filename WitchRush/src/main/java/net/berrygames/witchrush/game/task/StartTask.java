@@ -10,10 +10,16 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class StartTask extends BukkitRunnable {
 
-    private int timer = WitchRush.get().isForcedStart() ? 30 : 120;
+    private int sec = 0;
+    private int min = WitchRush.get().isForcedStart() ? 0 : 2 * 60;
 
     @Override
     public void run() {
+
+        if(this.sec == 0){
+            this.sec = 60;
+            this.min -= min;
+        }
 
         if (Bukkit.getOnlinePlayers().size() < 4 && !WitchRush.get().isForcedStart()) {
             Bukkit.broadcastMessage(WitchRush.prefix()+"Il n'y a pas assez de joueurs pour lancer la partie !");
@@ -22,30 +28,47 @@ public class StartTask extends BukkitRunnable {
             return;
         }
 
-        if(timer == 0){
+        if(this.min == 0 && this.sec == 0){
             WitchRush.get().getTeamManager().checkNoTeamPlayers();
             new GameManager();
             cancel();
         }
 
-        if(timer == 120 || timer == 60 || timer == 30 || timer == 15
-                || timer == 10 || timer == 5 || timer == 4 || timer == 3 || timer == 2){
-            Bukkit.broadcastMessage(WitchRush.prefix()+"Lancement de la partie dans §5"+timer+" §dsecondes");
-            for(Player pls : Bukkit.getOnlinePlayers()){
-                pls.playSound(pls.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 1);
+        while(this.min == 2){
+            if(this.sec == 0){
+                Bukkit.broadcastMessage(WitchRush.prefix()+"Lancement de la partie dans §5"+this.sec+" §dsecondes");
+                for(Player pls : Bukkit.getOnlinePlayers()){
+                    pls.playSound(pls.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 1);
+                }
             }
         }
-        if(timer == 1){
-            Bukkit.broadcastMessage(WitchRush.prefix()+"Lancement de la partie dans §5"+timer+" §dseconde");
-            for(Player pls : Bukkit.getOnlinePlayers()){
-                pls.playSound(pls.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 1);
+        while(this.min == 1){
+            if(this.sec == 30){
+                Bukkit.broadcastMessage(WitchRush.prefix()+"Lancement de la partie dans §5"+this.sec+" §dsecondes");
+                for(Player pls : Bukkit.getOnlinePlayers()){
+                    pls.playSound(pls.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 1);
+                }
             }
         }
-
-        for(Player pls : Bukkit.getOnlinePlayers()){
-            pls.setLevel(timer);
+        while(this.min == 0){
+            if(this.sec == 30 || this.sec == 15 || this.sec == 10 || this.sec == 5 || this.sec == 4
+                    || this.sec == 3 || this.sec == 2){
+                Bukkit.broadcastMessage(WitchRush.prefix()+"Lancement de la partie dans §5"+this.sec+" §dsecondes");
+                for(Player pls : Bukkit.getOnlinePlayers()){
+                    pls.playSound(pls.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 1);
+                }
+            }
+            if(this.sec == 1){
+                Bukkit.broadcastMessage(WitchRush.prefix()+"Lancement de la partie dans §5"+this.sec+" §dseconde");
+                for(Player pls : Bukkit.getOnlinePlayers()){
+                    pls.playSound(pls.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 1);
+                }
+            }
         }
+        this.sec--;
+    }
 
-        timer--;
+    public String getTimer() {
+        return min+":"+sec;
     }
 }

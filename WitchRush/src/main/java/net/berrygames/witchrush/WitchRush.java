@@ -2,6 +2,10 @@ package net.berrygames.witchrush;
 
 import net.berrygames.witchrush.commands.CommandsManager;
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.game.task.DeathMatchTask;
+import net.berrygames.witchrush.game.task.NoPVPTask;
+import net.berrygames.witchrush.game.task.PVPTask;
+import net.berrygames.witchrush.game.task.StartTask;
 import net.berrygames.witchrush.listeners.ListenersManager;
 import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
@@ -55,6 +59,21 @@ public class WitchRush extends JavaPlugin {
     }
     public GameState getState(){
         return this.gameState;
+    }
+    public String getStateTimer(){
+        switch (getState()){
+            case WAITING:
+                return null;
+            case STARTING:
+                return new StartTask().getTimer();
+            case NOWITCH:
+                return new NoPVPTask().getTimer();
+            case PVP:
+                return new PVPTask().getTimer();
+            case DEATH_MATCH:
+                return new DeathMatchTask().getTimer();
+        }
+        return null;
     }
     public TeamManager getTeamManager() {
         return teamManager;
