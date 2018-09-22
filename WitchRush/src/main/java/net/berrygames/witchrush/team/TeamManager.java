@@ -43,13 +43,13 @@ public class TeamManager {
     }
 
     public void addPlayerInRandomTeam(final Player player) {
-        TreeMap<TeamInfos, Player> teams = new TreeMap<>();
+        TreeMap<TeamInfos, List<Player>> teamMap = new TreeMap<>();
         for(TeamInfos infos : TeamInfos.values()){
             for(Player pls: Bukkit.getOnlinePlayers()){
-                if(!isPlayerInTeam(pls , infos)) teams.put(infos, pls);
+                if(!isPlayerInTeam(pls , infos)) teamMap.put(infos, getPlayerTeamList(infos));
             }
         }
-        if(!playerHaveTeam(player)) addPlayerTeam(player, teams.firstKey());
+        if(!playerHaveTeam(player)) addPlayerTeam(player, teamMap.lastKey());
     }
 
     public void checkNoTeamPlayers() {
@@ -117,7 +117,7 @@ public class TeamManager {
         if (this.playerTeamList.get(teamInfos) != null) {
             return this.playerTeamList.get(teamInfos);
         }
-        return new ArrayList<Player>();
+        return new ArrayList<>();
     }
 
     public Integer getPlayerTeamLimit() {

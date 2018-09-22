@@ -21,8 +21,7 @@ public class DeadPlayer {
         this.witchPlayer.setSpectator(true);
         player.setHealth(20);
         player.setGameMode(GameMode.SPECTATOR);
-        player.teleport(Locations.SPAWN_SPECTATORS.getLocation());
-        player.sendTitle("§cVous êtes mort", null);
+        player.sendTitle("§cVous êtes mort", " ");
         task = Bukkit.getScheduler().runTaskTimer(WitchRush.get(), new Runnable() {
             @Override
             public void run() {

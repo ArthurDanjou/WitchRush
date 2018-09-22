@@ -17,6 +17,9 @@ public class WinManager {
                 if (teamManager.getTeamPlayerCount(teamInfos) >= 1) {
                     ++teamLeft;
                 }
+                if(teamManager.getPlayerTeamList(teamInfos).size() == 0){
+                    teamManager.getTeamBoss(teamInfos).getWitch().remove();
+                }
             }
             if (teamLeft == 1) {
                 for (final TeamInfos teamInfos : TeamInfos.values()) {

@@ -45,6 +45,7 @@ public class DeathEvent implements Listener {
                 switch (WitchRush.get().getState()){
                     case PVP:
                         if(!teamManager.isInLife(teamManager.getPlayerTeam(player))){
+                            checkDrop(e);
                             TeamInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
                             e.setDeathMessage(WitchRush.prefix()+team.getChatColor()+player.getName()+"§c est éliminé");
                             witchPlayer.setDeath(witchPlayer.getDeath()+1);
@@ -59,14 +60,15 @@ public class DeathEvent implements Listener {
                             player.sendMessage(" ");
 
                             TeamsTagsManager.setNameTag(player, player.getName(), "§8(Spec)§7 ");
+                        } else {
+                            teamvictim = WitchRush.get().getTeamManager().getPlayerTeam(player);
+                            teamKiller = WitchRush.get().getTeamManager().getPlayerTeam(killer);
+                            e.setDeathMessage(WitchRush.prefix()+teamvictim.getChatColor()+player.getName()+"§d a été tué par "+teamKiller.getChatColor()+ killer.getName());
+                            checkDrop(e);
+                            new DeadPlayer(player);
+                            witchKiller.setKills(witchKiller.getKills()+1);
+                            witchPlayer.setDeath(witchPlayer.getDeath()+1);
                         }
-                        teamvictim = WitchRush.get().getTeamManager().getPlayerTeam(player);
-                        teamKiller = WitchRush.get().getTeamManager().getPlayerTeam(killer);
-
-                        e.setDeathMessage(WitchRush.prefix()+teamvictim.getChatColor()+player.getName()+"§d a été tué par "+teamKiller.getChatColor()+ killer.getName());
-                        new DeadPlayer(player);
-                        witchKiller.setKills(witchKiller.getKills()+1);
-                        witchPlayer.setDeath(witchPlayer.getDeath()+1);
                         break;
                     case NOWITCH:
                         teamvictim = WitchRush.get().getTeamManager().getPlayerTeam(player);
@@ -81,6 +83,7 @@ public class DeathEvent implements Listener {
             } else {
                 TeamInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
                 e.setDeathMessage(WitchRush.prefix()+team.getChatColor()+player.getName()+"§d est mort");
+                checkDrop(e);
                 new DeadPlayer(player);
                 player.setHealth(20);
                 witchPlayer.setDeath(witchPlayer.getDeath()+1);
@@ -91,29 +94,54 @@ public class DeathEvent implements Listener {
     @EventHandler
     public void onEntityDeath(final EntityDeathEvent e) {
         if (e.getEntity() instanceof Witch) {
-            final Witch witch = (Witch)e.getEntity();
-            final TeamManager teamManager = WitchRush.get().getTeamManager();
-            for (final ItemStack itemStack : e.getDrops()) {
-                itemStack.setType(Material.AIR);
-            }
-            TeamInfos teamInfos = null;
-            for (final TeamInfos teamInfosList : TeamInfos.values()) {
-                if (teamManager.getTeamBoss(teamInfosList).getWitch().equals(witch)) {
-                    teamInfos = teamInfosList;
+            if(WitchRush.get().getState().equals(GameState.PVP)){
+                final Witch witch = (Witch)e.getEntity();
+                final TeamManager teamManager = WitchRush.get().getTeamManager();
+                for (final ItemStack itemStack : e.getDrops()) {
+                    itemStack.setType(Material.AIR);
+                }
+                TeamInfos teamInfos = null;
+                for (final TeamInfos teamInfosList : TeamInfos.values()) {
+                    if (teamManager.getTeamBoss(teamInfosList).getWitch().equals(witch)) {
+                        teamInfos = teamInfosList;
+                    }
+                }
+                Bukkit.broadcastMessage(WitchRush.prefix()+"L'équipe "+teamInfos.getChatColor()+teamInfos.getTeamName()+" §dest morte !");
+                if (e.getEntity().getKiller() instanceof Player) {
+                    Bukkit.getPluginManager().callEvent(new BossDeathEvent(teamInfos, e.getEntity().getKiller()));
+                    teamManager.getBossEntityMap().remove(teamInfos);
+                    new HealthRunnable().arMap.remove(teamInfos);
+                }
+                for (final Player playerOnline : Bukkit.getOnlinePlayers()) {
+                    playerOnline.playSound(playerOnline.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0f, 1.0f);
+                    if (teamManager.isPlayerInTeam(playerOnline, teamInfos)) {
+                        playerOnline.sendMessage(WitchRush.prefix()+"Votre Boss est mort! Ne mourrez pas !");
+                        playerOnline.sendTitle("§cAttention","Votre boss est mort !");
+                    }
                 }
             }
-            Bukkit.broadcastMessage(WitchRush.prefix()+"L'équipe "+teamInfos.getChatColor()+teamInfos.getTeamName()+" §dest morte !");
-            if (e.getEntity().getKiller() instanceof Player) {
-                Bukkit.getPluginManager().callEvent(new BossDeathEvent(teamInfos, e.getEntity().getKiller()));
-                teamManager.getBossEntityMap().remove(teamInfos);
-                new HealthRunnable().arMap.remove(teamInfos);
-            }
-            for (final Player playerOnline : Bukkit.getOnlinePlayers()) {
-                playerOnline.playSound(playerOnline.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0f, 1.0f);
-                if (teamManager.isPlayerInTeam(playerOnline, teamInfos)) {
-                    playerOnline.sendMessage(WitchRush.prefix()+"Votre Boss est mort! Ne mourrez pas !");
-                    playerOnline.sendTitle("§cAttention","Votre boss est mort !");
-                }
+        }
+    }
+
+    private void checkDrop(PlayerDeathEvent e){
+        for(int i = 0; i<e.getDrops().size(); i++){
+            ItemStack stack = e.getDrops().get(i);
+            switch (stack.getType()){
+                case LEATHER_BOOTS:
+                    e.getDrops().get(i).setType(Material.AIR);
+                    break;
+                case LEATHER_LEGGINGS:
+                    e.getDrops().get(i).setType(Material.AIR);
+                    break;
+                case LEATHER_CHESTPLATE:
+                    e.getDrops().get(i).setType(Material.AIR);
+                    break;
+                case LEATHER_HELMET:
+                    e.getDrops().get(i).setType(Material.AIR);
+                    break;
+                case DIAMOND_SWORD:
+                    e.getDrops().get(i).setType(Material.AIR);
+                    break;
             }
         }
     }
