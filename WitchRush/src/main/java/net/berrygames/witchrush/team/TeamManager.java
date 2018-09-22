@@ -1,5 +1,6 @@
 package net.berrygames.witchrush.team;
 
+import net.berrygames.witchrush.game.task.HealthRunnable;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.WitchBoss;
 import org.bukkit.Bukkit;
@@ -49,7 +50,7 @@ public class TeamManager {
                 if(!isPlayerInTeam(pls , infos)) teamMap.put(infos, getPlayerTeamList(infos));
             }
         }
-        if(!playerHaveTeam(player)) addPlayerTeam(player, teamMap.lastKey());
+        if(!playerHaveTeam(player)) addPlayerTeam(player, teamMap.firstKey());
     }
 
     public void checkNoTeamPlayers() {
@@ -126,6 +127,11 @@ public class TeamManager {
 
     public WitchBoss getTeamBoss(final TeamInfos teamInfos) {
         return this.bossEntityMap.get(teamInfos);
+    }
+
+    public void killTeamBoss(final TeamInfos infos){
+        this.getBossEntityMap().remove(infos);
+        new HealthRunnable().arMap.remove(infos);
     }
 
     public Map<TeamInfos, List<Player>> getPlayerTeamList() {

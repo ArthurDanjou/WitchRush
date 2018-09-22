@@ -60,21 +60,6 @@ public class WitchRush extends JavaPlugin {
     public GameState getState(){
         return this.gameState;
     }
-    public String getStateTimer(){
-        switch (getState()){
-            case WAITING:
-                return null;
-            case STARTING:
-                return new StartTask().getTimer();
-            case NOWITCH:
-                return new NoPVPTask().getTimer();
-            case PVP:
-                return new PVPTask().getTimer();
-            case DEATH_MATCH:
-                return new DeathMatchTask().getTimer();
-        }
-        return null;
-    }
     public TeamManager getTeamManager() {
         return teamManager;
     }

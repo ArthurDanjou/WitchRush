@@ -64,7 +64,6 @@ public class GameManager {
             playerOnline.setGameMode(GameMode.SURVIVAL);
             witchPlayer.giveStuff();
             TeamsTagsManager.setNameTag(playerOnline, teamInfos.getIDName(), teamInfos.getChatColor()+teamInfos.getTeamName()+" ");
-            witchPlayer.sendGameScoreboard();
         });
     }
 

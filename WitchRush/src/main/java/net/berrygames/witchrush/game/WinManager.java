@@ -18,7 +18,7 @@ public class WinManager {
                     ++teamLeft;
                 }
                 if(teamManager.getPlayerTeamList(teamInfos).size() == 0){
-                    teamManager.getTeamBoss(teamInfos).getWitch().remove();
+                    teamManager.killTeamBoss(teamInfos);
                 }
             }
             if (teamLeft == 1) {

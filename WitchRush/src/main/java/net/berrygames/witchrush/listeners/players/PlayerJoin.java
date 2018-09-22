@@ -35,11 +35,10 @@ public class PlayerJoin implements Listener {
             player.setFoodLevel(20);
             player.teleport(Locations.PLAYER_SPAWN_WAITING_ROOM.getLocation());
             witchPlayer.sendWaitingStuff();
-            witchPlayer.sendLobbyScoreboard();
 
             TeamsTagsManager.setNameTag(player, player.getName(), "§7");
 
-            if(WitchPlayer.getwitchMap().size() >= 4){
+            if(WitchRush.get().getState().equals(GameState.WAITING) && WitchPlayer.getwitchMap().size() >= 4){
                 new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
                 WitchRush.get().setState(GameState.STARTING);
             }
@@ -58,7 +57,6 @@ public class PlayerJoin implements Listener {
             player.setHealth(20);
             player.setFoodLevel(20);
             player.teleport(Locations.SPAWN_SPECTATORS.getLocation());
-            witchPlayer.sendGameScoreboard();
         }
 
     }

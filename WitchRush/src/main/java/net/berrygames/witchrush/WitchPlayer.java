@@ -5,7 +5,7 @@ import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.ItemFactory;
 import net.berrygames.witchrush.tools.Locations;
-import net.berrygames.witchrush.tools.ScoreboardSign;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -13,6 +13,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -76,30 +80,6 @@ public class WitchPlayer {
         player.getInventory().setItem(4, new ItemFactory(Material.ARMOR_STAND)
                 .withName("§dTeams")
                 .done());
-    }
-
-    public void sendGameScoreboard(){
-        ScoreboardSign scoreboard = new ScoreboardSign(player, "§5§lWitchRush");
-        scoreboard.setLine(15, WitchRush.get().getState()+":"+WitchRush.get().getStateTimer());
-        scoreboard.setLine(14, "§r ");
-        scoreboard.setLine(13, manager.isInLife(TeamInfos.BLEU) ? "§a✔": "§c✖"+ "§bBleu"+ manager.getTeamBoss(TeamInfos.BLEU).getLife());
-        scoreboard.setLine(12, manager.isInLife(TeamInfos.ROUGE) ? "§a✔": "§c✖"+ "§cRouge"+ manager.getTeamBoss(TeamInfos.ROUGE).getLife());
-        scoreboard.setLine(11, manager.isInLife(TeamInfos.JAUNE) ? "§a✔": "§c✖"+ "§eJaune"+ manager.getTeamBoss(TeamInfos.JAUNE).getLife());
-        scoreboard.setLine(10, manager.isInLife(TeamInfos.VERT) ? "§a✔": "§c✖"+ "§aVert"+ manager.getTeamBoss(TeamInfos.VERT).getLife());
-        scoreboard.setLine(9, "§r ");
-        scoreboard.setLine(8, "§7Kills: "+WitchPlayer.get(player).getKills());
-        scoreboard.setLine(7, "§7Morts: "+WitchPlayer.get(player).getDeath());
-        scoreboard.setLine(6, "§r ");
-        scoreboard.setLine(5, "§6play.berrygames.net");
-    }
-
-    public void sendLobbyScoreboard(){
-        ScoreboardSign scoreboard = new ScoreboardSign(player, "§5§lWitchRush");
-        scoreboard.setLine(14, "§r ");
-        scoreboard.setLine(13, "§7Joueurs: ");
-        scoreboard.setLine(12, "§d"+WitchPlayer.getwitchMap().size()+"/16");
-        scoreboard.setLine(9, "§r ");
-        scoreboard.setLine(8, "§6play.berrygames.net");
     }
 
     public static WitchPlayer get(final Player player) {

@@ -20,6 +20,8 @@ public class GameCMD implements CommandExecutor {
         if(args.length == 1 && args[0].equals("start")){
             if(!player.isOp())return false;
 
+            if(!WitchRush.get().getState().equals(GameState.WAITING)) return false;
+
             WitchRush.get().setForcedStart(true);
             new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
             WitchRush.get().setState(GameState.STARTING);
