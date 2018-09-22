@@ -5,7 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.ServerListPingEvent;
 
-public class PingServer implements Listener {
+public class ServerPing implements Listener {
 
     @EventHandler
     public void ping(ServerListPingEvent e){

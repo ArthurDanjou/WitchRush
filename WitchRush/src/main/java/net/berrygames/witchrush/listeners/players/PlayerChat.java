@@ -10,7 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class ChatEvent implements Listener {
+public class PlayerChat implements Listener {
 
     @EventHandler
     public void chat(AsyncPlayerChatEvent e){

@@ -1,6 +1,5 @@
 package net.berrygames.witchrush.listeners.players;
 
-import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.team.TeamsMenu;
@@ -17,7 +16,7 @@ import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class InteractEvent implements Listener {
+public class PlayerInteract implements Listener {
 
     @EventHandler
     public void pvp(EntityDamageEvent e){
@@ -54,15 +53,13 @@ public class InteractEvent implements Listener {
             e.setCancelled(true);
         }
         e.setCancelled(true);
-        if(e.getRightClicked().getName().equals("S")){
+        if(e.getRightClicked().getName().equals("§6§lSHOP")){
             e.setCancelled(true);
             player.closeInventory();
-            player.sendMessage("s");
         }
-        if(e.getRightClicked().getName().equals("U")){
+        if(e.getRightClicked().getName().equals("§3§lUPGRADE")){
             e.setCancelled(true);
             player.closeInventory();
-            player.sendMessage("u");
         }
 
     }
@@ -70,7 +67,6 @@ public class InteractEvent implements Listener {
     @EventHandler
     public void click(PlayerInteractEvent e){
         Player player = e.getPlayer();
-        WitchPlayer witchPlayer = WitchPlayer.get(player);
         Action action = e.getAction();
         ItemStack item = e.getItem();
         e.setCancelled(true);

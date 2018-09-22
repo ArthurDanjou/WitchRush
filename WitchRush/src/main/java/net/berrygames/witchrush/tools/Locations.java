@@ -27,7 +27,7 @@ public enum Locations {
     SHOP_VERT(new Location(Bukkit.getWorld("world"), -5.5, 65, -8.5, 0, 0)),
 
     //PNJ SOLO UPGRADE
-    UPGRADE_BLEU(new Location(Bukkit.getWorld("world"), 6, 65, -8.5, 0, 0)),
+    UPGRADE_BLEU(new Location(Bukkit.getWorld("world"), 6.5, 65, -8.5, 0, 0)),
     UPGRADE_ROUGE(new Location(Bukkit.getWorld("world"), -5.5, 65, 9.5, -180, 0)),
     UPGRADE_JAUNE(new Location(Bukkit.getWorld("world"), 9.5, 65, 6.5, 90, 0)),
     UPGRADE_VERT(new Location(Bukkit.getWorld("world"), -8.5, 65, -5.5, -90, 0)),

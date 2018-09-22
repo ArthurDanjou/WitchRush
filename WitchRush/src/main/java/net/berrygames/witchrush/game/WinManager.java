@@ -26,10 +26,19 @@ public class WinManager {
                     if (!teamManager.getPlayerTeamList(teamInfos).isEmpty()) {
                         WitchRush.get().setState(GameState.FINISHING);
                         Bukkit.broadcastMessage(WitchRush.prefix()+"Victoire de l'équipe "+teamInfos.getChatColor()+teamInfos.getTeamName());
+                        this.endGame();
                     }
                 }
             }
         }
+    }
+
+    private void endGame() {
+
+        Bukkit.getScheduler().runTaskLater(WitchRush.get(), ()->{
+            Bukkit.getOnlinePlayers().forEach(players -> players.kickPlayer("§CPartie terminée"));
+            Bukkit.getServer().reload();
+        }, 20 * 10);
     }
 
 }

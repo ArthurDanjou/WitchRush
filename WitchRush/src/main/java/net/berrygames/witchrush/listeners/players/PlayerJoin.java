@@ -5,7 +5,6 @@ import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.game.task.StartTask;
 import net.berrygames.witchrush.tools.Locations;
-import net.berrygames.witchrush.tools.TeamsTagsManager;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -35,9 +34,6 @@ public class PlayerJoin implements Listener {
             player.setFoodLevel(20);
             player.teleport(Locations.PLAYER_SPAWN_WAITING_ROOM.getLocation());
             witchPlayer.sendWaitingStuff();
-
-            TeamsTagsManager.setNameTag(player, player.getName(), "§7");
-
             if(WitchRush.get().getState().equals(GameState.WAITING) && WitchPlayer.getwitchMap().size() >= 4){
                 new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
                 WitchRush.get().setState(GameState.STARTING);
@@ -48,9 +44,6 @@ public class PlayerJoin implements Listener {
             player.sendMessage("§8(Spectateur) §7Vous êtes spectateur pour cette partie.");
             player.sendMessage("§7Seuls les autres spectateurs voient vos messages !");
             player.sendMessage(" ");
-
-            TeamsTagsManager.setNameTag(player, player.getName(), "§8(Spec)§7 ");
-
             e.setJoinMessage(null);
             player.setGameMode(GameMode.SPECTATOR);
             player.setLevel(0);

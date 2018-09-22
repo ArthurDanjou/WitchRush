@@ -7,7 +7,6 @@ import net.berrygames.witchrush.team.TeamInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.PNJSpawner;
-import net.berrygames.witchrush.tools.TeamsTagsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Sound;
@@ -63,7 +62,6 @@ public class GameManager {
             playerOnline.setLevel(0);
             playerOnline.setGameMode(GameMode.SURVIVAL);
             witchPlayer.giveStuff();
-            TeamsTagsManager.setNameTag(playerOnline, teamInfos.getIDName(), teamInfos.getChatColor()+teamInfos.getTeamName()+" ");
         });
     }
 
