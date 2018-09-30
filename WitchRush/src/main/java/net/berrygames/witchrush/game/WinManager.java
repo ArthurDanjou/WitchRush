@@ -40,5 +40,4 @@ public class WinManager {
             Bukkit.getServer().reload();
         }, 20 * 10);
     }
-
 }
