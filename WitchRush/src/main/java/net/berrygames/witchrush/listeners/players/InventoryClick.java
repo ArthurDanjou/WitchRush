@@ -26,13 +26,13 @@ public class InventoryClick implements Listener {
                 case WOOL:
                     final TeamInfos teamInfos = TeamInfos.getTeamInfosByShortData(e.getCurrentItem().getDurability());
                     if (teamManager.isPlayerInTeam(player, teamInfos)) {
-                        player.sendMessage(WitchRush.prefix()+"Vous êtes déjà dans cette team !");
+                        player.sendMessage("§dVous êtes déjà dans cette team !");
                         player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
                         player.closeInventory();
                         return;
                     }
                     if (teamManager.teamIsFull(teamInfos)) {
-                        player.sendMessage(WitchRush.prefix()+"L'équipe est pleine !");
+                        player.sendMessage("§dL'équipe est pleine !");
                         player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
                         player.closeInventory();
                         return;
@@ -41,7 +41,7 @@ public class InventoryClick implements Listener {
                     player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
                     teamManager.addPlayerTeam(player, teamInfos);
                     TeamInfos infos1 = teamManager.getPlayerTeam(player);
-                    player.sendMessage(WitchRush.prefix()+"Vous avez rejoint la team "+infos1.getChatColor()+infos1.getTeamName());
+                    player.sendMessage("§dVous avez rejoint la team "+infos1.getChatColor()+infos1.getTeamName());
                     player.closeInventory();
                     break;
                 case BARRIER:
@@ -50,7 +50,7 @@ public class InventoryClick implements Listener {
                 case DOUBLE_PLANT:
                     player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
                     teamManager.removePlayerAllTeam(player);
-                    player.sendMessage(WitchRush.prefix()+"Vous serez dans une équipe au debut de la partie !");
+                    player.sendMessage("&dVous serez dans une équipe au debut de la partie !");
                     player.closeInventory();
                     break;
             }

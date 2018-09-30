@@ -33,6 +33,7 @@ public class DamageEvent implements Listener {
                     return;
                 }
                 for(TeamInfos teamInfos : TeamInfos.values()){
+                    if(!teamManager.isInLife(teamInfos)) return;
                     if(teamManager.getTeamBoss(teamInfos).getWitch().equals(witch)){
                         teamManager.getTeamBoss(teamInfos).getWitch().teleport(teamManager.getBossLocation(teamInfos));
                         Bukkit.getOnlinePlayers().forEach(playerOnline -> {

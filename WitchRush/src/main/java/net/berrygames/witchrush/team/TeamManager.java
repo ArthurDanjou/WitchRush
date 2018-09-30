@@ -130,8 +130,9 @@ public class TeamManager {
     }
 
     public void killTeamBoss(final TeamInfos infos){
-        this.getBossEntityMap().remove(infos);
-        new HealthRunnable().arMap.remove(infos);
+        if(this.getTeamBoss(infos).getWitch() != null) this.getTeamBoss(infos).getWitch().remove();
+        if(this.getBossEntityMap().get(infos) != null) this.getBossEntityMap().remove(infos);
+        if(new HealthRunnable().arMap.get(infos) != null) new HealthRunnable().arMap.remove(infos);
     }
 
     public Map<TeamInfos, List<Player>> getPlayerTeamList() {

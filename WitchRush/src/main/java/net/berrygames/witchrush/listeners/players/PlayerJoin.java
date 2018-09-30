@@ -4,8 +4,10 @@ import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.game.task.StartTask;
+import net.berrygames.witchrush.tools.ItemFactory;
 import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -37,6 +39,10 @@ public class PlayerJoin implements Listener {
             if(WitchRush.get().getState().equals(GameState.WAITING) && WitchPlayer.getwitchMap().size() >= 4){
                 new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
                 WitchRush.get().setState(GameState.STARTING);
+            }
+
+            if(player.isOp()){
+                player.getInventory().setItem(0, new ItemFactory(Material.FEATHER).withName("§cDémarrage forcé").done());
             }
         } else {
 
