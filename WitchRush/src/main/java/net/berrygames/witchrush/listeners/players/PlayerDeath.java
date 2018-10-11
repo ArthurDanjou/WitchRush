@@ -3,11 +3,12 @@ package net.berrygames.witchrush.listeners.players;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.DeadPlayer;
-import net.berrygames.witchrush.tools.Locations;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,59 +28,52 @@ public class PlayerDeath implements Listener {
         WitchPlayer witchPlayer = WitchPlayer.get(player);
         WitchPlayer witchKiller = WitchPlayer.get(killer);
 
-        final TeamInfos teamvictim;
-        final TeamInfos teamKiller;
+        final TeamsInfos teamvictim;
+        final TeamsInfos teamKiller;
 
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setDeathMessage(null);
-            player.kickPlayer("ENFAIT TOI T'ES FORT PCQ NORMALEMENT YA PAS CA");
-        } else {
-            if(killer instanceof Player){
-                switch (WitchRush.get().getState()){
-                    case PVP:
-                        if(!teamManager.isInLife(teamManager.getPlayerTeam(player))){
-                            checkDrop(e);
-                            TeamInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
-                            e.setDeathMessage(team.getChatColor()+player.getName()+"§c est éliminé");
-                            witchPlayer.setDeath(witchPlayer.getDeath()+1);
-                            witchPlayer.setSpectator(true);
-                            player.teleport(Locations.SPAWN_SPECTATORS.getLocation());
-                            player.setGameMode(GameMode.SPECTATOR);
-                            teamManager.removePlayerAllTeam(player);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setDeathMessage(null);
+                player.kickPlayer("ENFAIT TOI T'ES FORT PCQ NORMALEMENT YA PAS CA");
+                break;
+            case GAME:
+                if(killer instanceof Player){
+                    if(!teamManager.isInLife(teamManager.getPlayerTeam(player))){
+                        checkDrop(e);
+                        TeamsInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
+                        e.setDeathMessage(team.getChatColor()+player.getName()+"§c est éliminé");
+                        witchPlayer.setDeath(witchPlayer.getDeath()+1);
+                        witchPlayer.setSpectator(true);
+                        player.teleport(new Location(Bukkit.getWorld("world"), 0, 66, 0));
+                        player.setGameMode(GameMode.SPECTATOR);
+                        teamManager.removePlayerAllTeam(player);
 
-                            player.sendMessage(" ");
-                            player.sendMessage("§8(Spectateur) §7Vous êtes éliminé.");
-                            player.sendMessage("§7Seuls les autres spectateurs voient vos messages !");
-                            player.sendMessage(" ");
-                        } else {
-                            teamvictim = WitchRush.get().getTeamManager().getPlayerTeam(player);
-                            teamKiller = WitchRush.get().getTeamManager().getPlayerTeam(killer);
-                            e.setDeathMessage(teamvictim.getChatColor()+player.getName()+"§d a été tué par "+teamKiller.getChatColor()+ killer.getName());
-                            checkDrop(e);
-                            new DeadPlayer(player);
-                            witchKiller.setKills(witchKiller.getKills()+1);
-                            witchPlayer.setDeath(witchPlayer.getDeath()+1);
-                        }
-                        break;
-                    case NOWITCH:
+                        player.sendMessage(" ");
+                        player.sendMessage("§8(Spectateur) §7Vous êtes éliminé.");
+                        player.sendMessage("§7Seuls les autres spectateurs voient vos messages !");
+                        player.sendMessage(" ");
+                    } else {
                         teamvictim = WitchRush.get().getTeamManager().getPlayerTeam(player);
                         teamKiller = WitchRush.get().getTeamManager().getPlayerTeam(killer);
-
                         e.setDeathMessage(teamvictim.getChatColor()+player.getName()+"§d a été tué par "+teamKiller.getChatColor()+ killer.getName());
                         checkDrop(e);
                         new DeadPlayer(player);
                         witchKiller.setKills(witchKiller.getKills()+1);
                         witchPlayer.setDeath(witchPlayer.getDeath()+1);
-                        break;
+                    }
+                } else {
+                    TeamsInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
+                    e.setDeathMessage(team.getChatColor()+player.getName()+"§d est mort");
+                    checkDrop(e);
+                    new DeadPlayer(player);
+                    player.setHealth(20);
+                    witchPlayer.setDeath(witchPlayer.getDeath()+1);
                 }
-            } else {
-                TeamInfos team = WitchRush.get().getTeamManager().getPlayerTeam(player);
-                e.setDeathMessage(team.getChatColor()+player.getName()+"§d est mort");
-                checkDrop(e);
-                new DeadPlayer(player);
-                player.setHealth(20);
-                witchPlayer.setDeath(witchPlayer.getDeath()+1);
-            }
+                break;
+            case END:
+                e.setDeathMessage(null);
+                player.kickPlayer("ENFAIT TOI T'ES FORT PCQ NORMALEMENT YA PAS CA");
+                break;
         }
     }
 

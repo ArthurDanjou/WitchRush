@@ -2,11 +2,12 @@ package net.berrygames.witchrush.game;
 
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
-import net.berrygames.witchrush.game.task.NoPVPTask;
-import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.game.task.HealthRunnable;
+import net.berrygames.witchrush.game.task.PVPTask;
+import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
-import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.PNJSpawner;
+import net.berrygames.witchrush.tools.WitchBoss;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Sound;
@@ -21,7 +22,9 @@ public class GameManager {
         this.teamManager = WitchRush.get().getTeamManager();
         if (!(this.isStart = false)) {
             this.isStart = true;
-            WitchRush.get().setState(GameState.NOWITCH);
+            GameState.setStatus(GameState.GAME);
+
+            new PVPTask().runTaskTimer(WitchRush.get(), 0, 20);
 
             for(Player pls: Bukkit.getOnlinePlayers()){
                 pls.setGameMode(GameMode.SURVIVAL);
@@ -31,27 +34,27 @@ public class GameManager {
             Bukkit.broadcastMessage(WitchRush.prefix()+"§dVous avez §63minutes §dpour vous préparez.");
             this.loadPlayer();
 
-            //Spawn SHOP
-            new PNJSpawner("§6§lSHOP", TeamInfos.BLEU, Locations.SHOP_BLEU.getLocation());
-            new PNJSpawner("§6§lSHOP", TeamInfos.ROUGE, Locations.SHOP_ROUGE.getLocation());
-            new PNJSpawner("§6§lSHOP", TeamInfos.VERT, Locations.SHOP_VERT.getLocation());
-            new PNJSpawner("§6§lSHOP", TeamInfos.JAUNE, Locations.SHOP_JAUNE.getLocation());
+            for(TeamsInfos infos : TeamsInfos.values()){
+                new PNJSpawner("§6§lSHOP", infos, new TeamManager().getShopLocation(infos));
+                new PNJSpawner("§b§LUPGRADE", infos, new TeamManager().getUpgradeLocation(infos));
+            }
+            new PVPTask().runTaskTimer(WitchRush.get(), 0, 20);
+            Bukkit.getScheduler().runTaskLater(WitchRush.get(), ()->{
+                Bukkit.broadcastMessage(WitchRush.prefix()+"Les §6Witchs §dsont apparues, §d§nBonne chance à vous !");
 
-            //Spawn UPGRADE
-            new PNJSpawner("§b§LUPGRADE", TeamInfos.JAUNE, Locations.UPGRADE_BLEU.getLocation());
-            new PNJSpawner("§b§LUPGRADE", TeamInfos.ROUGE, Locations.UPGRADE_ROUGE.getLocation());
-            new PNJSpawner("§b§LUPGRADE", TeamInfos.VERT, Locations.UPGRADE_VERT.getLocation());
-            new PNJSpawner("§b§LUPGRADE", TeamInfos.JAUNE, Locations.UPGRADE_JAUNE.getLocation());
+                for(TeamsInfos infos : TeamsInfos.values()){
+                    new WitchBoss(infos, new TeamManager().getBossLocation(infos));
+                }
 
+                new HealthRunnable().runTaskTimer(WitchRush.get(), 0L, 20L);
+            }, 10 * 20);
         }
-        new NoPVPTask().runTaskTimer(WitchRush.get(), 0, 20);
     }
 
     private void loadPlayer() {
         Bukkit.getOnlinePlayers().forEach(playerOnline -> {
             WitchPlayer witchPlayer = WitchPlayer.get(playerOnline);
             this.teamManager.addPlayerInRandomTeam(playerOnline);
-            TeamInfos teamInfos = this.teamManager.getPlayerTeam(playerOnline);
             witchPlayer.teleportToBase();
             playerOnline.getInventory().clear();
             playerOnline.setMaxHealth(20.0);

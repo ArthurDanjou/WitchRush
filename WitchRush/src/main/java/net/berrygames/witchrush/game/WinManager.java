@@ -1,7 +1,7 @@
 package net.berrygames.witchrush.game;
 
 import net.berrygames.witchrush.WitchRush;
-import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
 
@@ -9,22 +9,17 @@ public class WinManager {
 
     public WinManager() {
         final TeamManager teamManager = WitchRush.get().getTeamManager();
-        if (WitchRush.get().getState().equals(GameState.NOWITCH)
-                || WitchRush.get().getState().equals(GameState.PVP)
-                || WitchRush.get().getState().equals(GameState.DEATH_MATCH)) {
+        if (GameState.getStatus().equals(GameState.GAME)) {
             int teamLeft = 0;
-            for (final TeamInfos teamInfos : TeamInfos.values()) {
+            for (final TeamsInfos teamInfos : TeamsInfos.values()) {
                 if (teamManager.getTeamPlayerCount(teamInfos) >= 1) {
                     ++teamLeft;
                 }
-                if(teamManager.getPlayerTeamList(teamInfos).size() == 0){
-                    teamManager.killTeamBoss(teamInfos);
-                }
             }
             if (teamLeft == 1) {
-                for (final TeamInfos teamInfos : TeamInfos.values()) {
+                for (final TeamsInfos teamInfos : TeamsInfos.values()) {
                     if (!teamManager.getPlayerTeamList(teamInfos).isEmpty()) {
-                        WitchRush.get().setState(GameState.FINISHING);
+                        GameState.setStatus(GameState.END);
                         Bukkit.broadcastMessage(WitchRush.prefix()+"Victoire de l'équipe "+teamInfos.getChatColor()+teamInfos.getTeamName());
                         this.endGame();
                     }
@@ -34,7 +29,6 @@ public class WinManager {
     }
 
     private void endGame() {
-
         Bukkit.getScheduler().runTaskLater(WitchRush.get(), ()->{
             Bukkit.getOnlinePlayers().forEach(players -> players.kickPlayer("§CPartie terminée"));
             Bukkit.getServer().reload();

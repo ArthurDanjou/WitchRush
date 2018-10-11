@@ -1,0 +1,30 @@
+#test
+
+teams:
+  bleu:
+    x:
+    y:
+    z:
+    yaw:
+    pitch:
+
+  rouge:
+    x:
+    y:
+    z:
+    yaw:
+    pitch:
+
+  jaune:
+    x:
+    y:
+    z:
+    yaw:
+    pitch:
+
+  vert:
+    x:
+    y:
+    z:
+    yaw:
+    pitch:

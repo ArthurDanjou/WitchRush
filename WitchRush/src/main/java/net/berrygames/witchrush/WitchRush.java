@@ -2,42 +2,65 @@ package net.berrygames.witchrush;
 
 import net.berrygames.witchrush.commands.CommandsManager;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.game.task.DeathMatchTask;
-import net.berrygames.witchrush.game.task.NoPVPTask;
-import net.berrygames.witchrush.game.task.PVPTask;
-import net.berrygames.witchrush.game.task.StartTask;
 import net.berrygames.witchrush.listeners.ListenersManager;
 import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.io.IOException;
 
 public class WitchRush extends JavaPlugin {
 
     private static WitchRush instance;
 
-    private GameState gameState;
     private TeamManager teamManager;
     private boolean forcedStart;
+    private File file;
+    private FileConfiguration conf;
 
     @Override
     public void onEnable() {
         instance = this;
 
-        this.gameState = GameState.WAITING;
+        GameState.setStatus(GameState.LOBBY);
         this.teamManager = new TeamManager();
         this.forcedStart = false;
 
         new CommandsManager().register(this);
         new ListenersManager().register(this);
 
+        saveDefaultConfig();
+
+        this.createYML(getConfig().getString("game.mode"));
+
         System.out.println("*-*-*-*-*-*-*-*");
         System.out.println("WitchRush");
         System.out.println("by BunS");
         System.out.println("Active");
         System.out.println("*-*-*-*-*-*-*-*");
+
         super.onEnable();
+    }
+
+    private void createYML(String name) {
+        this.file = new File(getDataFolder(), name+".yml");
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            saveResource(name+".yml", false);
+        }
+
+        this.conf = new YamlConfiguration();
+        try {
+            conf.load(file);
+        } catch (IOException | InvalidConfigurationException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -54,12 +77,14 @@ public class WitchRush extends JavaPlugin {
         }
     }
 
-    public void setState(GameState state){
-        this.gameState = state;
+    @Override
+    public File getFile() {
+        return file;
     }
-    public GameState getState(){
-        return this.gameState;
+    public FileConfiguration getMode() {
+        return conf;
     }
+
     public TeamManager getTeamManager() {
         return teamManager;
     }

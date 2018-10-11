@@ -1,6 +1,5 @@
 package net.berrygames.witchrush.listeners.world;
 
-import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,20 +12,14 @@ public class WorldEvents implements Listener {
 
     @EventHandler
     public void place(BlockPlaceEvent e){
-        switch (WitchRush.get().getState()){
-            case WAITING:
+        switch (GameState.getStatus()){
+            case LOBBY:
                 e.setCancelled(true);
                 break;
-            case STARTING:
-                e.setCancelled(true);
-                break;
-            case NOWITCH:
+            case GAME:
                 e.setCancelled(false);
                 break;
-            case PVP:
-                e.setCancelled(false);
-                break;
-            case FINISHING:
+            case END:
                 e.setCancelled(true);
                 break;
         }
@@ -34,40 +27,28 @@ public class WorldEvents implements Listener {
     }
     @EventHandler
     public void breakB(BlockBreakEvent e){
-        switch (WitchRush.get().getState()){
-            case WAITING:
+        switch (GameState.getStatus()){
+            case LOBBY:
                 e.setCancelled(true);
                 break;
-            case STARTING:
-                e.setCancelled(true);
-                break;
-            case NOWITCH:
+            case GAME:
                 e.setCancelled(false);
                 break;
-            case PVP:
-                e.setCancelled(false);
-                break;
-            case FINISHING:
+            case END:
                 e.setCancelled(true);
                 break;
         }
     }
     @EventHandler
     public void damage(BlockDamageEvent e){
-        switch (WitchRush.get().getState()){
-            case WAITING:
+        switch (GameState.getStatus()){
+            case LOBBY:
                 e.setCancelled(true);
                 break;
-            case STARTING:
-                e.setCancelled(true);
-                break;
-            case NOWITCH:
+            case GAME:
                 e.setCancelled(false);
                 break;
-            case PVP:
-                e.setCancelled(false);
-                break;
-            case FINISHING:
+            case END:
                 e.setCancelled(true);
                 break;
         }

@@ -2,7 +2,7 @@ package net.berrygames.witchrush.listeners.players;
 
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class InventoryClick implements Listener {
             e.setCancelled(true);
             switch (item.getType()){
                 case WOOL:
-                    final TeamInfos teamInfos = TeamInfos.getTeamInfosByShortData(e.getCurrentItem().getDurability());
+                    final TeamsInfos teamInfos = TeamsInfos.getTeamInfosByShortData(e.getCurrentItem().getDurability());
                     if (teamManager.isPlayerInTeam(player, teamInfos)) {
                         player.sendMessage("§dVous êtes déjà dans cette team !");
                         player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
@@ -40,7 +40,7 @@ public class InventoryClick implements Listener {
                     teamManager.removePlayerAllTeam(player);
                     player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
                     teamManager.addPlayerTeam(player, teamInfos);
-                    TeamInfos infos1 = teamManager.getPlayerTeam(player);
+                    TeamsInfos infos1 = teamManager.getPlayerTeam(player);
                     player.sendMessage("§dVous avez rejoint la team "+infos1.getChatColor()+infos1.getTeamName());
                     player.closeInventory();
                     break;
@@ -59,9 +59,16 @@ public class InventoryClick implements Listener {
 
     @EventHandler
     public void onInventoryClick(final InventoryClickEvent e) {
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setCancelled(true);
+                break;
+            case GAME:
+                e.setCancelled(false);
+                break;
+            case END:
+                e.setCancelled(true);
+                break;
         }
     }
-
 }

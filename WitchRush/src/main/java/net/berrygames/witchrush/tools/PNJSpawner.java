@@ -1,6 +1,6 @@
 package net.berrygames.witchrush.tools;
 
-import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamsInfos;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
@@ -8,13 +8,13 @@ import org.bukkit.entity.Villager;
 
 public class PNJSpawner {
 
-    private TeamInfos teamInfos;
+    private TeamsInfos teamInfos;
     private Location location;
     private Villager villager;
     private double life;
     private String name;
 
-    public PNJSpawner(String name, final TeamInfos teamInfos, final Location location) {
+    public PNJSpawner(String name, final TeamsInfos teamInfos, final Location location) {
         this.teamInfos = teamInfos;
         this.location = location;
         this.villager = (Villager) Bukkit.getWorld("world").spawnEntity(location, EntityType.VILLAGER);
@@ -30,7 +30,7 @@ public class PNJSpawner {
         this.villager.setCollidable(false);
     }
 
-    public TeamInfos getTeamInfos() {
+    public TeamsInfos getTeamInfos() {
         return this.teamInfos;
     }
 

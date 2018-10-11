@@ -16,17 +16,13 @@ public class GameCMD implements CommandExecutor {
         if(!(sender instanceof Player)) return false;
 
         Player player = (Player) sender;
+        if(!player.isOp())return false;
 
-        if(args.length == 1 && args[0].equals("start")){
-            if(!player.isOp())return false;
+        if(!GameState.getStatus().equals(GameState.LOBBY)) return false;
 
-            if(!WitchRush.get().getState().equals(GameState.WAITING)) return false;
-
-            WitchRush.get().setForcedStart(true);
-            new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
-            WitchRush.get().setState(GameState.STARTING);
-            Bukkit.broadcastMessage(WitchRush.prefix()+"§c"+player.getName()+" a forcé le démarrage de la partie !");
-        }
+        WitchRush.get().setForcedStart(true);
+        new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
+        Bukkit.broadcastMessage(WitchRush.prefix()+"§c"+player.getName()+" a forcé le démarrage de la partie !");
         return false;
     }
 }

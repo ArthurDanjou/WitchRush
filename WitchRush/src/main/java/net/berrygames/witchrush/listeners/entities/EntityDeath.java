@@ -2,12 +2,11 @@ package net.berrygames.witchrush.listeners.entities;
 
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
-import net.berrygames.witchrush.team.TeamInfos;
+import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Witch;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,23 +20,39 @@ public class EntityDeath implements Listener {
     @EventHandler
     public void onEntityDeath(final EntityDeathEvent e) {
         if(e.getEntity() instanceof Witch){
-            if(!WitchRush.get().getState().equals(GameState.PVP) || !WitchRush.get().getState().equals(GameState.DEATH_MATCH)) return;
-            final Witch witch = (Witch) e.getEntity();
-            for (final ItemStack itemStack : e.getDrops()) {
-                itemStack.setType(Material.AIR);
-            }
-            for(TeamInfos infos : TeamInfos.values()){
-                if(teamManager.getTeamBoss(infos).getWitch().equals(witch)){
-                    Bukkit.broadcastMessage(WitchRush.prefix()+"L'équipe "+infos.getChatColor()+infos.getTeamName()+" §dest morte !");
-                    for (final Player playerOnline : Bukkit.getOnlinePlayers()) {
-                          playerOnline.playSound(playerOnline.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0f, 1.0f);
-                          if (teamManager.isPlayerInTeam(playerOnline, infos)) {
-                              playerOnline.sendMessage(WitchRush.prefix()+"Votre Boss est mort! Ne mourrez pas !");
-                              playerOnline.sendTitle("§cAttention","Votre boss est mort !");
-                              teamManager.killTeamBoss(infos);
-                          }
+            switch (GameState.getStatus()){
+                case LOBBY:
+                    break;
+                case GAME:
+                    final Witch witch = (Witch) e.getEntity();
+                    TeamsInfos teamInfos = TeamsInfos.JAUNE;
+                    for (final ItemStack itemStack : e.getDrops()) {
+                        itemStack.setType(Material.AIR);
                     }
-                }
+                    for (final TeamsInfos teamInfosList : TeamsInfos.values()) {
+                        if (teamManager.getTeamBoss(teamInfosList).getWitch().equals(witch)) {
+                            teamInfos = teamInfosList;
+                        }
+                    }
+                    System.out.println(witch.getCustomName());
+                    System.out.println(witch.getName());
+                    System.out.println(teamManager.getTeamBoss(teamInfos).getWitch().getCustomName());
+                    System.out.println(teamManager.getTeamBoss(teamInfos).getWitch().getName());
+                    if(teamManager.getTeamBoss(teamInfos).getWitch().equals(witch)){
+                        Bukkit.broadcastMessage(WitchRush.prefix()+" Le boss des"+teamInfos.getChatColor()+teamInfos.getTeamName()+"s §dest mort");
+                        TeamsInfos finalTeamInfos = teamInfos;
+                        Bukkit.getOnlinePlayers().forEach(pls -> {
+                            pls.playSound(pls.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0f, 1.0f);
+                            if(teamManager.isPlayerInTeam(pls, finalTeamInfos)){
+                                pls.sendMessage("Votre boss est mort !");
+                                pls.sendMessage("Ne mourrez pas");
+                                pls.sendTitle("§cAttention","Votre boss est mort !");
+                            }
+                        });
+                    }
+                    break;
+                case END:
+                    break;
             }
         }
     }

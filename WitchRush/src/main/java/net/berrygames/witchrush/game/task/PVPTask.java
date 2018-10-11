@@ -1,11 +1,9 @@
 package net.berrygames.witchrush.game.task;
 
-import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.game.WinManager;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class PVPTask extends BukkitRunnable {
@@ -16,8 +14,9 @@ public class PVPTask extends BukkitRunnable {
     public void run() {
 
         if(this.timer == 0){
-            new DeathMatchTask().runTaskTimer(WitchRush.get(), 0, 20 * 5);
-            WitchRush.get().setState(GameState.DEATH_MATCH);
+
+            //DeathMatch
+
             Bukkit.broadcastMessage(WitchRush.prefix()+"Le DeathMatch commence.");
             Bukkit.broadcastMessage(WitchRush.prefix()+"Les §5§lWitchs §dcommencent à perdre de la vie !");
             cancel();

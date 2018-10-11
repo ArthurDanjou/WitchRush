@@ -1,7 +1,6 @@
 package net.berrygames.witchrush.team;
 
-import net.berrygames.witchrush.game.task.HealthRunnable;
-import net.berrygames.witchrush.tools.Locations;
+import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.tools.WitchBoss;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -11,15 +10,15 @@ import java.util.*;
 
 public class TeamManager {
 
-    private Map<TeamInfos, List<Player>> playerTeamList;
-    private Map<TeamInfos, WitchBoss> bossEntityMap;
+    private Map<TeamsInfos, List<Player>> playerTeamList;
+    private Map<TeamsInfos, WitchBoss> bossEntityMap;
 
     public TeamManager() {
         this.playerTeamList = new HashMap<>();
         this.bossEntityMap = new HashMap<>();
     }
 
-    public void addPlayerTeam(final Player player, final TeamInfos teamInfos) {
+    public void addPlayerTeam(final Player player, final TeamsInfos teamInfos) {
         if (this.playerTeamList.get(teamInfos) == null) {
             this.playerTeamList.put(teamInfos, new ArrayList<>());
         }
@@ -30,63 +29,80 @@ public class TeamManager {
     }
 
     public void removePlayerAllTeam(final Player player){
-        for (final TeamInfos teamInfos : TeamInfos.values()) {
+        for (final TeamsInfos teamInfos : TeamsInfos.values()) {
             if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
                 this.playerTeamList.get(teamInfos).remove(player);
             }
         }
     }
 
-    public void removePlayerTeam(final Player player, final TeamInfos teamInfos) {
+    public void removePlayerTeam(final Player player, final TeamsInfos teamInfos) {
         if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
             this.playerTeamList.get(teamInfos).remove(player);
         }
     }
 
     public void addPlayerInRandomTeam(final Player player) {
-        TreeMap<TeamInfos, List<Player>> teamMap = new TreeMap<>();
-        for(TeamInfos infos : TeamInfos.values()){
+        TreeMap<TeamsInfos, List<Player>> teamMap = new TreeMap<>();
+        for(TeamsInfos infos : TeamsInfos.values()){
             for(Player pls: Bukkit.getOnlinePlayers()){
                 if(!isPlayerInTeam(pls , infos)) teamMap.put(infos, getPlayerTeamList(infos));
             }
         }
-        if(!playerHaveTeam(player)) addPlayerTeam(player, teamMap.firstKey());
-    }
-
-    public void checkNoTeamPlayers() {
-        for(Player onlinePlayers : Bukkit.getOnlinePlayers()) {
-            if(!playerHaveTeam(onlinePlayers)) addPlayerInRandomTeam(onlinePlayers);
+        if(!playerHaveTeam(player)){
+            addPlayerTeam(player, teamMap.firstKey());
         }
     }
 
-    public boolean isInLife(final TeamInfos teamInfos) {
+    public boolean isInLife(final TeamsInfos teamInfos) {
         if(getBossEntityMap().containsKey(teamInfos)){
             return true;
         }
         return false;
     }
 
-    public Location getBossLocation(final TeamInfos teamInfos) {
-        switch (teamInfos){
-            case ROUGE:
-                return Locations.WITCH_ROUGE.getLocation();
-            case BLEU:
-                return Locations.WITCH_BLEU.getLocation();
-            case VERT:
-                return Locations.WITCH_VERT.getLocation();
-            case JAUNE:
-                return Locations.WITCH_JAUNE.getLocation();
-        }
-
-        return null;
+    public Location getBossLocation(final TeamsInfos teamInfos) {
+        return new Location(Bukkit.getWorld("world"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".boss.x"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".boss.y"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".boss.z"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".boss.yaw"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".boss.pitch"));
     }
 
-    public boolean isPlayerInTeam(final Player player, final TeamInfos teamInfos) {
+    public Location getShopLocation(final TeamsInfos teamInfos) {
+        return new Location(Bukkit.getWorld("world"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".shop.x"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".shop.y"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".shop.z"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".shop.yaw"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".shop.pitch"));
+    }
+
+    public Location getUpgradeLocation(final TeamsInfos teamInfos) {
+        return new Location(Bukkit.getWorld("world"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".upgrade.x"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".upgrade.y"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".upgrade.z"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".upgrade.yaw"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".upgrade.pitch"));
+    }
+
+    public Location getTeamLocation(final TeamsInfos teamInfos) {
+        return new Location(Bukkit.getWorld("world"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".spawn.x"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".spawn.y"),
+                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".spawn.z"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".spawn.yaw"),
+                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".spawn.pitch"));
+    }
+
+    public boolean isPlayerInTeam(final Player player, final TeamsInfos teamInfos) {
         return this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player);
     }
 
     public boolean playerHaveTeam(final Player player) {
-        for (final TeamInfos teamInfos : TeamInfos.values()) {
+        for (final TeamsInfos teamInfos : TeamsInfos.values()) {
             if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
                 return true;
             }
@@ -94,12 +110,12 @@ public class TeamManager {
         return false;
     }
 
-    public boolean teamIsFull(final TeamInfos teamInfos) {
+    public boolean teamIsFull(final TeamsInfos teamInfos) {
         return this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).size() >= this.getPlayerTeamLimit();
     }
 
-    public TeamInfos getPlayerTeam(final Player player) {
-        for (final TeamInfos teamInfos : TeamInfos.values()) {
+    public TeamsInfos getPlayerTeam(final Player player) {
+        for (final TeamsInfos teamInfos : TeamsInfos.values()) {
             if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
                 return teamInfos;
             }
@@ -107,14 +123,14 @@ public class TeamManager {
         return null;
     }
 
-    public Integer getTeamPlayerCount(final TeamInfos teamInfos) {
+    public Integer getTeamPlayerCount(final TeamsInfos teamInfos) {
         if (this.playerTeamList.get(teamInfos) != null) {
             return this.playerTeamList.get(teamInfos).size();
         }
         return 0;
     }
 
-    public List<Player> getPlayerTeamList(final TeamInfos teamInfos) {
+    public List<Player> getPlayerTeamList(final TeamsInfos teamInfos) {
         if (this.playerTeamList.get(teamInfos) != null) {
             return this.playerTeamList.get(teamInfos);
         }
@@ -125,23 +141,12 @@ public class TeamManager {
         return 4;
     }
 
-    public WitchBoss getTeamBoss(final TeamInfos teamInfos) {
+    public WitchBoss getTeamBoss(final TeamsInfos teamInfos) {
         return this.bossEntityMap.get(teamInfos);
     }
 
-    public void killTeamBoss(final TeamInfos infos){
-        if(this.getTeamBoss(infos).getWitch() != null) this.getTeamBoss(infos).getWitch().remove();
-        if(this.getBossEntityMap().get(infos) != null) this.getBossEntityMap().remove(infos);
-        if(new HealthRunnable().arMap.get(infos) != null) new HealthRunnable().arMap.remove(infos);
-    }
-
-    public Map<TeamInfos, List<Player>> getPlayerTeamList() {
-        return this.playerTeamList;
-    }
-
-    public Map<TeamInfos, WitchBoss> getBossEntityMap() {
+    public Map<TeamsInfos, WitchBoss> getBossEntityMap() {
         return this.bossEntityMap;
     }
-
 
 }

@@ -24,48 +24,86 @@ public class PlayerInteract implements Listener {
 
     @EventHandler
     public void pvp(EntityDamageEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setCancelled(true);
+                break;
+            case GAME:
+                e.setCancelled(false);
+                break;
+            case END:
+                e.setCancelled(true);
+                break;
         }
     }
 
     @EventHandler
     public void pvp(EntityDamageByBlockEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setCancelled(true);
+                break;
+            case GAME:
+                e.setCancelled(false);
+                break;
+            case END:
+                e.setCancelled(true);
+                break;
         }
     }
 
     @EventHandler
     public void drop(PlayerDropItemEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setCancelled(true);
+                break;
+            case GAME:
+                e.setCancelled(false);
+                break;
+            case END:
+                e.setCancelled(true);
+                break;
         }
     }
 
     @EventHandler
     public void pvp(EntityDamageByEntityEvent e){
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setCancelled(true);
+                break;
+            case GAME:
+                e.setCancelled(false);
+                break;
+            case END:
+                e.setCancelled(true);
+                break;
         }
     }
 
     @EventHandler
     public void click(PlayerInteractAtEntityEvent e){
         Player player = e.getPlayer();
-        if(WitchRush.get().getState().equals(GameState.WAITING) || WitchRush.get().getState().equals(GameState.STARTING)){
-            e.setCancelled(true);
+        switch (GameState.getStatus()){
+            case LOBBY:
+                e.setCancelled(true);
+                break;
+            case GAME:
+                e.setCancelled(true);
+                if(e.getRightClicked().getName().equals("§6§lSHOP")){
+                    player.closeInventory();
+                    new ShopGui(player);
+                }
+                if(e.getRightClicked().getName().equals("§3§lUPGRADE")){
+                    player.closeInventory();
+                    new UpgradeGUI(player);
+                }
+                break;
+            case END:
+                e.setCancelled(true);
+                break;
         }
-        e.setCancelled(true);
-        if(e.getRightClicked().getName().equals("§6§lSHOP")){
-            e.setCancelled(true);
-            new ShopGui(player);
-        }
-        if(e.getRightClicked().getName().equals("§3§lUPGRADE")){
-            e.setCancelled(true);
-            new UpgradeGUI(player);
-        }
-
     }
 
     @EventHandler
@@ -86,13 +124,15 @@ public class PlayerInteract implements Listener {
                     player.sendMessage("retour au hub soon");
                     break;
                 case FEATHER:
+                    if(WitchRush.get().isForcedStart())return;
                     if(player.isOp()){
-                        if(!WitchRush.get().getState().equals(GameState.WAITING)) return;
-
-                        WitchRush.get().setForcedStart(true);
-                        new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
-                        WitchRush.get().setState(GameState.STARTING);
-                        Bukkit.broadcastMessage(WitchRush.prefix()+"§c"+player.getName()+" a forcé le démarrage de la partie !");
+                        switch (GameState.getStatus()){
+                            case LOBBY:
+                                WitchRush.get().setForcedStart(true);
+                                new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
+                                Bukkit.broadcastMessage(WitchRush.prefix()+"§c"+player.getName()+" a forcé le démarrage de la partie !");
+                                break;
+                        }
                     }
                     break;
                     default:break;
