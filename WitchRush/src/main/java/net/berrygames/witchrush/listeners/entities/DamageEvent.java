@@ -4,6 +4,8 @@ import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
+import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Witch;
 import org.bukkit.event.EventHandler;
@@ -31,7 +33,7 @@ public class DamageEvent implements Listener {
                             player.sendMessage("§cVous ne pouvez pas tuer votre boss !");
                             return;
                         }
-                /*for(TeamsInfos infos : TeamsInfos.values()){
+                for(TeamsInfos infos : TeamsInfos.values()){
                     if(teamManager.getTeamBoss(infos).getWitch().equals(witch)){
                         Bukkit.getOnlinePlayers().forEach(pls -> {
                             if(teamManager.getPlayerTeam(pls).equals(infos)){
@@ -40,7 +42,7 @@ public class DamageEvent implements Listener {
                             }
                         });
                     }
-                }*/
+                }
                         break;
                     case VILLAGER:
                         if(e.getDamager() instanceof Player) e.setCancelled(true);

@@ -25,6 +25,7 @@ public class PlayerQuit implements Listener {
                 e.setQuitMessage(null);
                 break;
             case GAME:
+                if(witchPlayer.isSpectator()) return;
                 e.setQuitMessage(
                         WitchRush.prefix()+"§e"+player.getName()+
                                 " §da quitté la partie §7(§d"+

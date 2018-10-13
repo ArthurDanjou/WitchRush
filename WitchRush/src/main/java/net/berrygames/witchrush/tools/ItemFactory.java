@@ -1,5 +1,6 @@
 package net.berrygames.witchrush.tools;
 
+import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -45,6 +46,11 @@ public class ItemFactory {
 
     public ItemFactory withColor(final DyeColor color) {
         this.item.setDurability((short)color.getWoolData());
+        return this;
+    }
+
+    public ItemFactory withColor(final Color color) {
+        this.item.setDurability((short) DyeColor.getByColor(color).getWoolData());
         return this;
     }
 

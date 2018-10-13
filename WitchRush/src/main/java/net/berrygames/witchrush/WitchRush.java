@@ -6,6 +6,7 @@ import net.berrygames.witchrush.listeners.ListenersManager;
 import net.berrygames.witchrush.team.TeamManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -63,6 +64,19 @@ public class WitchRush extends JavaPlugin {
         }
     }
 
+    public void setConf(String path, Object value){
+        this.conf.set(path, value);
+        try {
+            this.conf.save(this.file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public FileConfiguration getConf(){
+        return conf;
+    }
+
     @Override
     public void onDisable() {
         System.out.println("*-*-*-*-*-*-*-*");
@@ -72,17 +86,13 @@ public class WitchRush extends JavaPlugin {
         System.out.println("*-*-*-*-*-*-*-*");
         super.onDisable();
 
-        for(Player pls : Bukkit.getOnlinePlayers()){
-            pls.kickPlayer(ChatColor.RED+"Le serveur redémarre");
-        }
+        Bukkit.getOnlinePlayers().forEach(pls -> pls.kickPlayer(ChatColor.RED+"Le serveur redémarre"));
+        Bukkit.getWorld("world").getEntities().forEach(en -> en.remove());
     }
 
     @Override
     public File getFile() {
         return file;
-    }
-    public FileConfiguration getMode() {
-        return conf;
     }
 
     public TeamManager getTeamManager() {

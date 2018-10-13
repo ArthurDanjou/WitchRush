@@ -5,10 +5,10 @@ import org.bukkit.Color;
 
 public enum TeamsInfos {
 
-    VERT(0,"Vert", "vert", "§a", (short)13, Color.GREEN),
-    BLEU(1,"Bleu", "bleu", "§b", (short)11, Color.BLUE),
-    JAUNE(2,"Jaune", "jaune", "§e", (short)4, Color.YELLOW),
-    ROUGE(3,"Rouge", "rouge", "§c", (short)14, Color.RED),
+    VERT(0,"Vert", "vert", "§a", (short)13, Color.GREEN, 23),
+    BLEU(1,"Bleu", "bleu", "§b", (short)11, Color.BLUE, 19),
+    JAUNE(2,"Jaune", "jaune", "§e", (short)4, Color.YELLOW, 21),
+    ROUGE(3,"Rouge", "rouge", "§c", (short)14, Color.RED, 25),
     ;
 
     private int id;
@@ -17,14 +17,16 @@ public enum TeamsInfos {
     private String chatColor;
     private short dataClay;
     private Color color;
+    private int slotGUI;
 
-    TeamsInfos(int id, String IDName, String teamName, String chatColor, short dataClay, Color color) {
+    TeamsInfos(int id, String IDName, String teamName, String chatColor, short dataClay, Color color, int slotGUI) {
         this.id = id;
         this.IDName = IDName;
         this.teamName = teamName;
         this.chatColor = chatColor;
         this.dataClay = dataClay;
         this.color = color;
+        this.slotGUI = slotGUI;
     }
 
     public String getIDName() {
@@ -49,6 +51,10 @@ public enum TeamsInfos {
 
     public int getId() {
         return id;
+    }
+
+    public int getSlotGUI() {
+        return slotGUI;
     }
 
     public static TeamsInfos getTeamInfosByIDName(final String ID) {

@@ -55,46 +55,40 @@ public class TeamManager {
     }
 
     public boolean isInLife(final TeamsInfos teamInfos) {
-        if(getBossEntityMap().containsKey(teamInfos)){
-            return true;
-        }
-        return false;
+        return getBossEntityMap().containsKey(teamInfos);
     }
 
     public Location getBossLocation(final TeamsInfos teamInfos) {
         return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".boss.x"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".boss.y"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".boss.z"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".boss.yaw"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".boss.pitch"));
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".boss.x"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".boss.y"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".boss.z"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".boss.yaw"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".boss.pitch"));
     }
-
     public Location getShopLocation(final TeamsInfos teamInfos) {
         return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".shop.x"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".shop.y"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".shop.z"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".shop.yaw"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".shop.pitch"));
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".shop.x"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".shop.y"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".shop.z"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".shop.yaw"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".shop.pitch"));
     }
-
     public Location getUpgradeLocation(final TeamsInfos teamInfos) {
         return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".upgrade.x"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".upgrade.y"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".upgrade.z"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".upgrade.yaw"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".upgrade.pitch"));
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".upgrade.x"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".upgrade.y"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".upgrade.z"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".upgrade.yaw"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".upgrade.pitch"));
     }
-
     public Location getTeamLocation(final TeamsInfos teamInfos) {
         return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".spawn.x"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".spawn.y"),
-                WitchRush.get().getMode().getDouble("teams."+teamInfos.getTeamName()+".spawn.z"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".spawn.yaw"),
-                WitchRush.get().getMode().getLong("teams."+teamInfos.getTeamName()+".spawn.pitch"));
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".spawn.x"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".spawn.y"),
+                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".spawn.z"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".spawn.yaw"),
+                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".spawn.pitch"));
     }
 
     public boolean isPlayerInTeam(final Player player, final TeamsInfos teamInfos) {
@@ -103,9 +97,7 @@ public class TeamManager {
 
     public boolean playerHaveTeam(final Player player) {
         for (final TeamsInfos teamInfos : TeamsInfos.values()) {
-            if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
-                return true;
-            }
+            return isPlayerInTeam(player, teamInfos);
         }
         return false;
     }

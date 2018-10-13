@@ -47,7 +47,7 @@ public class GameManager {
                 }
 
                 new HealthRunnable().runTaskTimer(WitchRush.get(), 0L, 20L);
-            }, 10 * 20);
+            }, 3 * 20 * 60);
         }
     }
 

@@ -34,19 +34,16 @@ public class EntityDeath implements Listener {
                             teamInfos = teamInfosList;
                         }
                     }
-                    System.out.println(witch.getCustomName());
-                    System.out.println(witch.getName());
-                    System.out.println(teamManager.getTeamBoss(teamInfos).getWitch().getCustomName());
-                    System.out.println(teamManager.getTeamBoss(teamInfos).getWitch().getName());
                     if(teamManager.getTeamBoss(teamInfos).getWitch().equals(witch)){
-                        Bukkit.broadcastMessage(WitchRush.prefix()+" Le boss des"+teamInfos.getChatColor()+teamInfos.getTeamName()+"s §dest mort");
-                        TeamsInfos finalTeamInfos = teamInfos;
+                        Bukkit.broadcastMessage(WitchRush.prefix()+" Le boss des "+teamInfos.getChatColor()+teamInfos.getTeamName().toUpperCase()+"s §dest mort");
+                        final TeamsInfos finalTeamInfos = teamInfos;
                         Bukkit.getOnlinePlayers().forEach(pls -> {
                             pls.playSound(pls.getLocation(), Sound.ENTITY_WITHER_DEATH, 1.0f, 1.0f);
                             if(teamManager.isPlayerInTeam(pls, finalTeamInfos)){
-                                pls.sendMessage("Votre boss est mort !");
-                                pls.sendMessage("Ne mourrez pas");
-                                pls.sendTitle("§cAttention","Votre boss est mort !");
+                                pls.sendMessage("§4Votre boss est mort !");
+                                pls.sendMessage("§4Ne mourrez pas");
+                                pls.sendTitle("§cAttention","§c§oVotre boss est mort !");
+                                teamManager.getBossEntityMap().remove(finalTeamInfos);
                             }
                         });
                     }

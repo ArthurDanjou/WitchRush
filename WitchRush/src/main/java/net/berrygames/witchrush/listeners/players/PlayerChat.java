@@ -39,7 +39,7 @@ public class PlayerChat implements Listener {
                     Bukkit.getOnlinePlayers().forEach(playerOnline -> {
                         final TeamsInfos teamInfos = WitchRush.get().getTeamManager().getPlayerTeam(player);
                         if(WitchRush.get().getTeamManager().getPlayerTeam(playerOnline).equals(teamInfos)){
-                            playerOnline.sendMessage("§7["+teamInfos.getChatColor()+teamInfos.getTeamName()+"§7] "
+                            playerOnline.sendMessage("§7["+teamInfos.getChatColor()+teamInfos.getIDName()+"§7] "
                                     +WitchRush.get().getTeamManager().getPlayerTeam(playerOnline).getChatColor()
                                     +player.getDisplayName()+" §7» §f"+message.replace("!","§r"));
                         }

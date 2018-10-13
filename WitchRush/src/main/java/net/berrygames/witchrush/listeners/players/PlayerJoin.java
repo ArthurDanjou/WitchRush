@@ -52,6 +52,7 @@ public class PlayerJoin implements Listener {
                 player.sendMessage("§7Seuls les autres spectateurs voient vos messages !");
                 player.sendMessage(" ");
                 e.setJoinMessage(null);
+                witchPlayer.setSpectator(true);
                 player.setGameMode(GameMode.SPECTATOR);
                 player.setLevel(0);
                 player.setHealth(20);
