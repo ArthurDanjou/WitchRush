@@ -3,6 +3,7 @@ package net.berrygames.witchrush.listeners.players;
 import net.berrygames.witchrush.WitchPlayer;
 import net.berrygames.witchrush.WitchRush;
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.kits.Kits;
 import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.DeadPlayer;
@@ -79,22 +80,8 @@ public class PlayerDeath implements Listener {
 
     private void checkDrop(PlayerDeathEvent e){
         for(final ItemStack itemStack : e.getDrops()){
-            switch (itemStack.getType()){
-                case LEATHER_BOOTS:
-                    itemStack.setType(Material.AIR);
-                    break;
-                case LEATHER_LEGGINGS:
-                    itemStack.setType(Material.AIR);
-                    break;
-                case LEATHER_CHESTPLATE:
-                    itemStack.setType(Material.AIR);
-                    break;
-                case LEATHER_HELMET:
-                    itemStack.setType(Material.AIR);
-                    break;
-                case DIAMOND_SWORD:
-                    itemStack.setType(Material.AIR);
-                    break;
+            for(Kits kits : Kits.values()){
+                if(itemStack.getType().equals(kits.getItems())) itemStack.setType(Material.AIR);
             }
         }
     }

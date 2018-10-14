@@ -1,2 +1,3 @@
 game:
   mode: "4x4"
+  bossLife: 500

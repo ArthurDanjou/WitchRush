@@ -1,6 +1,7 @@
 package net.berrygames.witchrush;
 
 import net.berrygames.witchrush.game.GameState;
+import net.berrygames.witchrush.kits.Kits;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.ItemFactory;
 import org.bukkit.Color;
@@ -37,13 +38,14 @@ public class WitchPlayer {
 
     public void giveStuff(){
         player.getInventory().clear();
-        final ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
         final Color color = manager.getPlayerTeam(player).getColor();
         player.getInventory().setHelmet(getHelmetColor(Material.LEATHER_HELMET, color));
         player.getInventory().setChestplate(getHelmetColor(Material.LEATHER_CHESTPLATE, color));
         player.getInventory().setLeggings(getHelmetColor(Material.LEATHER_LEGGINGS, color));
         player.getInventory().setBoots(getHelmetColor(Material.LEATHER_BOOTS, color));
-        player.getInventory().setItem(0, sword);
+        for(ItemStack items : Kits.getGoblinIKit()){
+            player.getInventory().addItem(items);
+        }
     }
 
     public void sendLobby(){

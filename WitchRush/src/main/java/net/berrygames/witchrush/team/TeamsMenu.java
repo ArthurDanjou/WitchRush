@@ -33,7 +33,7 @@ public class TeamsMenu {
         for(TeamsInfos infos : TeamsInfos.values()){
             inventory.setItem(infos.getSlotGUI(), new ItemFactory(Material.WOOL)
                     .withName(infos.getChatColor()+infos.getTeamName())
-                    .withColor(infos.getColor())
+                    .withColor(infos.getDyeColor())
                     .done());
         }
 

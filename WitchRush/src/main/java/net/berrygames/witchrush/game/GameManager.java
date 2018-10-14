@@ -38,7 +38,6 @@ public class GameManager {
                 new PNJSpawner("§6§lSHOP", infos, new TeamManager().getShopLocation(infos));
                 new PNJSpawner("§b§LUPGRADE", infos, new TeamManager().getUpgradeLocation(infos));
             }
-            new PVPTask().runTaskTimer(WitchRush.get(), 0, 20);
             Bukkit.getScheduler().runTaskLater(WitchRush.get(), ()->{
                 Bukkit.broadcastMessage(WitchRush.prefix()+"Les §6Witchs §dsont apparues, §d§nBonne chance à vous !");
 

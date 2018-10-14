@@ -1,36 +1,32 @@
 package net.berrygames.witchrush.team;
 
-import net.berrygames.witchrush.tools.PNJSpawner;
 import org.bukkit.Color;
+import org.bukkit.DyeColor;
 
 public enum TeamsInfos {
 
-    VERT(0,"Vert", "vert", "§a", (short)13, Color.GREEN, 23),
-    BLEU(1,"Bleu", "bleu", "§b", (short)11, Color.BLUE, 19),
-    JAUNE(2,"Jaune", "jaune", "§e", (short)4, Color.YELLOW, 21),
-    ROUGE(3,"Rouge", "rouge", "§c", (short)14, Color.RED, 25),
+    VERT(0,"Vert", "§a", DyeColor.LIME, (short)5, Color.GREEN, 23),
+    BLEU(1,"Bleu", "§b", DyeColor.LIGHT_BLUE, (short)3, Color.BLUE, 19),
+    JAUNE(2,"Jaune", "§e", DyeColor.YELLOW, (short)4, Color.YELLOW, 21),
+    ROUGE(3,"Rouge", "§c", DyeColor.RED, (short)14, Color.RED, 25),
     ;
 
     private int id;
-    private String IDName;
     private String teamName;
     private String chatColor;
     private short dataClay;
     private Color color;
+    private DyeColor dyeColor;
     private int slotGUI;
 
-    TeamsInfos(int id, String IDName, String teamName, String chatColor, short dataClay, Color color, int slotGUI) {
+    TeamsInfos(int id, String teamName, String chatColor, DyeColor dyeColor, short dataClay, Color color, int slotGUI) {
         this.id = id;
-        this.IDName = IDName;
         this.teamName = teamName;
         this.chatColor = chatColor;
+        this.dyeColor = dyeColor;
         this.dataClay = dataClay;
         this.color = color;
         this.slotGUI = slotGUI;
-    }
-
-    public String getIDName() {
-        return IDName;
     }
 
     public String getTeamName() {
@@ -39,6 +35,10 @@ public enum TeamsInfos {
 
     public String getChatColor() {
         return chatColor;
+    }
+
+    public DyeColor getDyeColor() {
+        return dyeColor;
     }
 
     public short getDataClay() {
@@ -57,9 +57,9 @@ public enum TeamsInfos {
         return slotGUI;
     }
 
-    public static TeamsInfos getTeamInfosByIDName(final String ID) {
+    public static TeamsInfos getTeamInfosByName(final String name) {
         for (final TeamsInfos teamInfos : values()) {
-            if (teamInfos.getIDName().equalsIgnoreCase(ID)) {
+            if (teamInfos.getTeamName().toLowerCase().equalsIgnoreCase(name.toLowerCase())) {
                 return teamInfos;
             }
         }

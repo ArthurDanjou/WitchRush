@@ -49,11 +49,6 @@ public class ItemFactory {
         return this;
     }
 
-    public ItemFactory withColor(final Color color) {
-        this.item.setDurability((short) DyeColor.getByColor(color).getWoolData());
-        return this;
-    }
-
     public ItemFactory withOwner(final String owner) {
         if (this.item.getType().equals((Object)Material.SKULL_ITEM)) {
             this.item.setDurability((short)3);

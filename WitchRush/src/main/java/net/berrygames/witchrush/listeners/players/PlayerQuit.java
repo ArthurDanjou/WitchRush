@@ -22,15 +22,14 @@ public class PlayerQuit implements Listener {
 
         switch (GameState.getStatus()){
             case LOBBY:
-                e.setQuitMessage(null);
-                break;
-            case GAME:
-                if(witchPlayer.isSpectator()) return;
                 e.setQuitMessage(
                         WitchRush.prefix()+"§e"+player.getName()+
                                 " §da quitté la partie §7(§d"+
                                 WitchPlayer.getwitchMap().size()+
                                 "§8/§d16§7)");
+                break;
+            case GAME:
+                e.setQuitMessage(null);
                 break;
             case END:
                 e.setQuitMessage(null);

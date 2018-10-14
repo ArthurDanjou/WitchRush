@@ -18,7 +18,7 @@ public class WinManager {
             }
             if (teamLeft == 1) {
                 for (final TeamsInfos teamInfos : TeamsInfos.values()) {
-                    if (!teamManager.getPlayerTeamList(teamInfos).isEmpty()) {
+                    if (!teamManager.getPlayersTeamList(teamInfos).isEmpty()) {
                         GameState.setStatus(GameState.END);
                         Bukkit.broadcastMessage(WitchRush.prefix()+"Victoire de l'équipe "+teamInfos.getChatColor()+teamInfos.getTeamName());
                         this.endGame();

@@ -22,7 +22,7 @@ public class WitchBoss {
         this.manager = WitchRush.get().getTeamManager();
         manager.getBossEntityMap().put(teamInfos, this);
         this.witch = (Witch) Bukkit.getWorld("world").spawnEntity(location, EntityType.WITCH);
-        this.life = 500;
+        this.life = WitchRush.get().getConfig().getInt("game.bossLife");
         this.witch.setMaxHealth(this.life);
         this.witch.setHealth(this.life);
         this.witch.setCustomNameVisible(false);

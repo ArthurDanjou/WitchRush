@@ -19,43 +19,38 @@ public class TeamManager {
     }
 
     public void addPlayerTeam(final Player player, final TeamsInfos teamInfos) {
-        if (this.playerTeamList.get(teamInfos) == null) {
+        if(this.playerTeamList.get(teamInfos) == null) {
             this.playerTeamList.put(teamInfos, new ArrayList<>());
         }
-        if (!this.teamIsFull(teamInfos)) {
-            this.removePlayerAllTeam(player);
-            this.playerTeamList.get(teamInfos).add(player);
-        }
+        this.removePlayerAllTeam(player);
+        this.playerTeamList.get(teamInfos).add(player);
     }
 
     public void removePlayerAllTeam(final Player player){
-        for (final TeamsInfos teamInfos : TeamsInfos.values()) {
+        for(final TeamsInfos teamInfos : TeamsInfos.values()) {
             if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
-                this.playerTeamList.get(teamInfos).remove(player);
+                removePlayerTeam(player, teamInfos);
             }
         }
     }
 
     public void removePlayerTeam(final Player player, final TeamsInfos teamInfos) {
-        if (this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
+        if(this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player)) {
             this.playerTeamList.get(teamInfos).remove(player);
         }
     }
 
     public void addPlayerInRandomTeam(final Player player) {
+        if(playerHaveTeam(player)) return;
         TreeMap<TeamsInfos, List<Player>> teamMap = new TreeMap<>();
         for(TeamsInfos infos : TeamsInfos.values()){
-            for(Player pls: Bukkit.getOnlinePlayers()){
-                if(!isPlayerInTeam(pls , infos)) teamMap.put(infos, getPlayerTeamList(infos));
-            }
+            teamMap.put(infos, getPlayersTeamList(infos));
         }
-        if(!playerHaveTeam(player)){
-            addPlayerTeam(player, teamMap.firstKey());
-        }
+        addPlayerTeam(player, teamMap.firstKey());
     }
 
     public boolean isInLife(final TeamsInfos teamInfos) {
-        return getBossEntityMap().containsKey(teamInfos);
+        return getBossEntityMap().containsValue(teamInfos);
     }
 
     public Location getBossLocation(final TeamsInfos teamInfos) {
@@ -122,7 +117,7 @@ public class TeamManager {
         return 0;
     }
 
-    public List<Player> getPlayerTeamList(final TeamsInfos teamInfos) {
+    public List<Player> getPlayersTeamList(final TeamsInfos teamInfos) {
         if (this.playerTeamList.get(teamInfos) != null) {
             return this.playerTeamList.get(teamInfos);
         }
@@ -134,7 +129,7 @@ public class TeamManager {
     }
 
     public WitchBoss getTeamBoss(final TeamsInfos teamInfos) {
-        return this.bossEntityMap.get(teamInfos);
+        return this.getBossEntityMap().get(teamInfos);
     }
 
     public Map<TeamsInfos, WitchBoss> getBossEntityMap() {
