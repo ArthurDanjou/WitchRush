@@ -31,7 +31,7 @@ public enum Kits {
         return this.items;
     }
 
-    public static ArrayList<ItemStack> getElfIKit(){
+    public static ArrayList<ItemStack> getGoblinIKit(){
         ArrayList<ItemStack> list = new ArrayList<>();
 
         list.add(new ItemFactory(Material.WOOD_SWORD).withName("§bSword Level I").done());
@@ -39,7 +39,7 @@ public enum Kits {
 
         return list;
     }
-    public static ArrayList<ItemStack> getElfIIKit(){
+    public static ArrayList<ItemStack> getGoblinIIKit(){
         ArrayList<ItemStack> list = new ArrayList<>();
 
         list.add(new ItemFactory(Material.STONE_SWORD).withName("§bSword Level II").done());
@@ -47,7 +47,7 @@ public enum Kits {
 
         return list;
     }
-    public static ArrayList<ItemStack> getElfIIIKit(){
+    public static ArrayList<ItemStack> getGoblinIIIKit(){
         ArrayList<ItemStack> list = new ArrayList<>();
 
         list.add(new ItemFactory(Material.IRON_SWORD).withName("§bSword Level III").done());
@@ -56,7 +56,7 @@ public enum Kits {
         return list;
     }
 
-    public static ArrayList<ItemStack> getGoblinIKit(){
+    public static ArrayList<ItemStack> getElfIKit(){
         ArrayList<ItemStack> list = new ArrayList<>();
 
         list.add(new ItemFactory(Material.BOW).withName("§bArc Level I").done());
@@ -65,7 +65,7 @@ public enum Kits {
 
         return list;
     }
-    public static ArrayList<ItemStack> getGoblinIIKit(){
+    public static ArrayList<ItemStack> getElfIIKit(){
         ArrayList<ItemStack> list = new ArrayList<>();
 
         list.add(new ItemFactory(Material.BOW).withName("§bArc Level II").withEnchant(Enchantment.ARROW_DAMAGE, 1).done());
@@ -74,7 +74,7 @@ public enum Kits {
 
         return list;
     }
-    public static ArrayList<ItemStack> getGoblinIIIKit(){
+    public static ArrayList<ItemStack> getElfIIIKit(){
         ArrayList<ItemStack> list = new ArrayList<>();
 
         list.add(new ItemFactory(Material.BOW).withName("§bArc Level III").withEnchant(Enchantment.ARROW_DAMAGE, 2).done());

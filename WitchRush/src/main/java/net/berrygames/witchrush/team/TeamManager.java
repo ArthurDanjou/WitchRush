@@ -1,8 +1,7 @@
 package net.berrygames.witchrush.team;
 
-import net.berrygames.witchrush.WitchRush;
+import net.berrygames.witchrush.tools.Locations;
 import net.berrygames.witchrush.tools.WitchBoss;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -41,7 +40,9 @@ public class TeamManager {
     }
 
     public void addPlayerInRandomTeam(final Player player) {
-        if(playerHaveTeam(player)) return;
+        for(TeamsInfos infos : TeamsInfos.values()){
+            if(isPlayerInTeam(player, infos)) return;
+        }
         TreeMap<TeamsInfos, List<Player>> teamMap = new TreeMap<>();
         for(TeamsInfos infos : TeamsInfos.values()){
             teamMap.put(infos, getPlayersTeamList(infos));
@@ -54,47 +55,47 @@ public class TeamManager {
     }
 
     public Location getBossLocation(final TeamsInfos teamInfos) {
-        return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".boss.x"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".boss.y"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".boss.z"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".boss.yaw"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".boss.pitch"));
+        switch (teamInfos){
+            case JAUNE:
+                return Locations.BOSS_JAUNE.getLoc();
+            case ROUGE:
+                return Locations.BOSS_ROUGE.getLoc();
+            case VERT:
+                return Locations.BOSS_VERT.getLoc();
+            case BLEU:
+                return Locations.BOSS_BLEU.getLoc();
+        }
+        return null;
     }
     public Location getShopLocation(final TeamsInfos teamInfos) {
-        return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".shop.x"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".shop.y"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".shop.z"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".shop.yaw"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".shop.pitch"));
+        switch (teamInfos){
+            case JAUNE:
+                return Locations.SHOP_JAUNE.getLoc();
+            case ROUGE:
+                return Locations.SHOP_ROUGE.getLoc();
+            case VERT:
+                return Locations.SHOP_VERT.getLoc();
+            case BLEU:
+                return Locations.SHOP_BLEU.getLoc();
+        }
+        return null;
     }
     public Location getUpgradeLocation(final TeamsInfos teamInfos) {
-        return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".upgrade.x"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".upgrade.y"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".upgrade.z"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".upgrade.yaw"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".upgrade.pitch"));
-    }
-    public Location getTeamLocation(final TeamsInfos teamInfos) {
-        return new Location(Bukkit.getWorld("world"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".spawn.x"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".spawn.y"),
-                WitchRush.get().getConf().getDouble("teams."+teamInfos.getTeamName()+".spawn.z"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".spawn.yaw"),
-                WitchRush.get().getConf().getLong("teams."+teamInfos.getTeamName()+".spawn.pitch"));
+        switch (teamInfos){
+            case JAUNE:
+                return Locations.UPGRADE_JAUNE.getLoc();
+            case ROUGE:
+                return Locations.UPGRADE_ROUGE.getLoc();
+            case VERT:
+                return Locations.UPGRADE_VERT.getLoc();
+            case BLEU:
+                return Locations.UPGRADE_BLEU.getLoc();
+        }
+        return null;
     }
 
     public boolean isPlayerInTeam(final Player player, final TeamsInfos teamInfos) {
         return this.playerTeamList.get(teamInfos) != null && this.playerTeamList.get(teamInfos).contains(player);
-    }
-
-    public boolean playerHaveTeam(final Player player) {
-        for (final TeamsInfos teamInfos : TeamsInfos.values()) {
-            return isPlayerInTeam(player, teamInfos);
-        }
-        return false;
     }
 
     public boolean teamIsFull(final TeamsInfos teamInfos) {

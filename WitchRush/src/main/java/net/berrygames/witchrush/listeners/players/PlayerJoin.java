@@ -6,6 +6,7 @@ import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.game.task.StartTask;
 import net.berrygames.witchrush.team.TeamManager;
 import net.berrygames.witchrush.tools.ItemFactory;
+import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -37,11 +38,8 @@ public class PlayerJoin implements Listener {
                 player.setExp(0f);
                 player.setHealth(20);
                 player.setFoodLevel(20);
-                player.teleport(new Location(Bukkit.getWorld("world"), 0, 66, 0));
+                player.teleport(Locations.WAITING_ROOMS.getLoc());
                 witchPlayer.sendWaitingStuff();
-                if(WitchPlayer.getwitchMap().size() >= 4){
-                    new StartTask().runTaskTimer(WitchRush.get(), 0, 20);
-                }
                 if(player.isOp()){
                     player.getInventory().setItem(0, new ItemFactory(Material.FEATHER).withName("§cDémarrage forcé").done());
                 }
@@ -53,6 +51,7 @@ public class PlayerJoin implements Listener {
                 player.sendMessage(" ");
                 e.setJoinMessage(null);
                 witchPlayer.setSpectator(true);
+                player.teleport(Locations.SPECTATORS.getLoc());
                 player.setGameMode(GameMode.SPECTATOR);
                 player.setLevel(0);
                 player.setHealth(20);
@@ -65,6 +64,7 @@ public class PlayerJoin implements Listener {
                 player.sendMessage("§7Seuls les autres spectateurs voient vos messages !");
                 player.sendMessage(" ");
                 e.setJoinMessage(null);
+                player.teleport(Locations.SPECTATORS.getLoc());
                 player.setGameMode(GameMode.SPECTATOR);
                 player.setLevel(0);
                 player.setHealth(20);

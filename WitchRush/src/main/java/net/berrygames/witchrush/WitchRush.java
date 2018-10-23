@@ -22,8 +22,6 @@ public class WitchRush extends JavaPlugin {
 
     private TeamManager teamManager;
     private boolean forcedStart;
-    private File file;
-    private FileConfiguration conf;
 
     @Override
     public void onEnable() {
@@ -36,10 +34,6 @@ public class WitchRush extends JavaPlugin {
         new CommandsManager().register(this);
         new ListenersManager().register(this);
 
-        saveDefaultConfig();
-
-        this.createYML(getConfig().getString("game.mode"));
-
         System.out.println("*-*-*-*-*-*-*-*");
         System.out.println("WitchRush");
         System.out.println("by BunS");
@@ -47,34 +41,6 @@ public class WitchRush extends JavaPlugin {
         System.out.println("*-*-*-*-*-*-*-*");
 
         super.onEnable();
-    }
-
-    private void createYML(String name) {
-        this.file = new File(getDataFolder(), name+".yml");
-        if (!file.exists()) {
-            file.getParentFile().mkdirs();
-            saveResource(name+".yml", false);
-        }
-
-        this.conf = new YamlConfiguration();
-        try {
-            conf.load(file);
-        } catch (IOException | InvalidConfigurationException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setConf(String path, Object value){
-        this.conf.set(path, value);
-        try {
-            this.conf.save(this.file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public FileConfiguration getConf(){
-        return conf;
     }
 
     @Override
@@ -88,11 +54,6 @@ public class WitchRush extends JavaPlugin {
 
         Bukkit.getOnlinePlayers().forEach(pls -> pls.kickPlayer(ChatColor.RED+"Le serveur redémarre"));
         Bukkit.getWorld("world").getEntities().forEach(en -> en.remove());
-    }
-
-    @Override
-    public File getFile() {
-        return file;
     }
 
     public TeamManager getTeamManager() {

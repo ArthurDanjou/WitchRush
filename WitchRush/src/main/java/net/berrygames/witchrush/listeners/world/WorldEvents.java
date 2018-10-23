@@ -47,6 +47,13 @@ public class WorldEvents implements Listener {
                 break;
             case GAME:
                 e.setCancelled(false);
+                switch (e.getBlock().getType()){
+                    case SANDSTONE:
+                        e.setCancelled(false);
+                        break;
+                        default: e.setCancelled(true);
+                        break;
+                }
                 break;
             case END:
                 e.setCancelled(true);

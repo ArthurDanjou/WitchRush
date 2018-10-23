@@ -23,6 +23,7 @@ public class ListenersManager {
         pm.registerEvents(new PlayerFood(), main);
         pm.registerEvents(new InventoryClick(), main);
         pm.registerEvents(new DamageEvent(), main);
+        pm.registerEvents(new PlayerMove(), main);
 
         // --- WORLD ---//
         pm.registerEvents(new WorldEvents(), main);

@@ -6,5 +6,3 @@ website: berrygames.net
 
 commands:
   gamestart:
-  setlocation:
-    aliases: [setloc, loc]

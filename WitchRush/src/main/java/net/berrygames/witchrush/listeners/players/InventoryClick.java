@@ -58,6 +58,7 @@ public class InventoryClick implements Listener {
                 case DOUBLE_PLANT:
                     player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_YES, 1.0f, 1.0f);
                     teamManager.removePlayerAllTeam(player);
+                    System.out.println(teamManager.getPlayerTeam(player));
                     player.sendMessage("§dVous serez dans une équipe au debut de la partie !");
                     player.closeInventory();
                     break;

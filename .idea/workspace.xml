@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a79b7b5-da71-4175-8877-2d0cd22b5542" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/WitchRush/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="474367932">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="24" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.100" value="1" />
+          <entry key="project.open.time.108" value="1" />
+          <entry key="project.open.time.126" value="1" />
+          <entry key="project.open.time.139" value="1" />
+          <entry key="project.open.time.144" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.202" value="1" />
+          <entry key="project.open.time.223" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.236" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.38" value="2" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.41" value="2" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.50" value="2" />
+          <entry key="project.open.time.58" value="2" />
+          <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.65" value="1" />
+          <entry key="project.open.time.71" value="1" />
+          <entry key="project.open.time.84" value="1" />
+          <entry key="project.open.time.93" value="1" />
+          <entry key="project.opened" value="35" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="gradle" value="9" />
+          <entry key="groovy" value="1" />
+          <entry key="java" value="935" />
+          <entry key="xml" value="7" />
+          <entry key="yml" value="28" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Groovy" value="9" />
+          <entry key="JAVA" value="935" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Scratch" value="1" />
+          <entry key="XML" value="7" />
+          <entry key="YAML" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="133" />
+          <entry key="gradle" value="45" />
+          <entry key="java" value="29851" />
+          <entry key="txt" value="344" />
+          <entry key="xml" value="16" />
+          <entry key="yml" value="373" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Groovy" value="45" />
+          <entry key="JAVA" value="29851" />
+          <entry key="PLAIN_TEXT" value="675" />
+          <entry key="XML" value="16" />
+          <entry key="YAML" value="175" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getBossLocation#0;class#TeamManager#0" />
+                <element signature="method#getShopLocation#0;class#TeamManager#0" />
+                <element signature="method#getUpgradeLocation#0;class#TeamManager#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/WitchPlayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>GamePlayer</find>
+      <find>gaMap</find>
+      <find>golem</find>
+      <find>witch</find>
+      <find>.spawn(</find>
+      <find>&quot;S&quot;</find>
+      <find>&quot;U&quot;</find>
+      <find>&quot;</find>
+      <find>getGolem</find>
+      <find>Golem</find>
+      <find>sec</find>
+      <find>*</find>
+      <find>getTeam</find>
+      <find>getScoreboardManager</find>
+      <find>�</find>
+      <find>DyeColor</find>
+      <find>getPitch</find>
+      <find>getMode</find>
+      <find>TeamsInfos.getTeamInfosByID(i).getTeamName()</find>
+      <find>getLocation</find>
+    </findStrings>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="INTERACTIVE" value="false" />
+    <option name="ONTO" value="refs/heads/master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/.gradle" value="0" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="4144132460" />
+        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2007532874" />
+        <entry key="$PROJECT_DIR$/settings.gradle" value="1047669563" />
+      </map>
+    </option>
+  </component>
+  <component name="GroovyConsoleState">
+    <option name="list">
+      <list>
+        <Entry>
+          <option name="url" value="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy" />
+          <option name="moduleName" value="" />
+          <option name="title" value="WitchRush_main (Bundled Groovy 2.4.15)" />
+        </Entry>
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/DeathEvent.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/DamageEvent.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/DeathMatchTask.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/InteractEvent.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/shop/ShopGui.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/shop/UpgradeGUI.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/GameState.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/NoPVPTask.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/PVPTask.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/servers/ServerPing.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamInfos.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/Teams1x16.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/Teams2x8.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/Teams3x4.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/HealthRunnable.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/entities/DamageEvent.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/entities/EntityDeath.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/ItemFactory.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerChat.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamsMenu.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerQuit.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/WinManager.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/resources/config.yml" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/WitchBoss.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/GoblinIII.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/GoblinII.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/ElfIII.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/ElfII.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/ElfI.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerDeath.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/StartTask.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/InventoryClick.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/TypeStairsRotate.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/resources/4x4.yml" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/admins/LocationsCMD.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/resources/plugin.yml" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/WitchRush.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/GameManager.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/DeadPlayer.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/Locations.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamsInfos.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/world/WorldEvents.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/Kits.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/CommandsManager.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/ListenersManager.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerJoin.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/admins/GameCMD.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerInteract.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerMove.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/WitchPlayer.java" />
+        <option value="$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamManager.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="WitchRush" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="WitchRush" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="WitchRush" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Run Configurations" type="21c1f71a:MavenProjectsStructure$RunConfigurationsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="WitchRush" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-36" />
+    <option name="y" value="24" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+              <item name="admins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="kits" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="listeners" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="listeners" type="462c0819:PsiDirectoryNode" />
+              <item name="entities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="listeners" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="listeners" type="462c0819:PsiDirectoryNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="team" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witchrush" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WitchRush" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WitchRush" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.14871795" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="net.berrygames.witchrush.listeners.players" />
+      <recent name="net.berrygames.witchrush.commands.admins" />
+      <recent name="net.berrygames.witchrush.listeners.entities" />
+      <recent name="net.berrygames.witchrush.listeners.servers" />
+      <recent name="net.berrygames.witchrush.listeners.custom" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.WitchRush [build]">
+    <configuration name="WitchRush [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="WitchRush [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="compileJava" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="WitchRush [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="init" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="WitchRush [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="WitchRush [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="testClasses" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="WitchRush build" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/WitchRush" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Maven.WitchRush build" />
+      <item itemvalue="Gradle.WitchRush [build]" />
+      <item itemvalue="Gradle.WitchRush [jar]" />
+      <item itemvalue="Gradle.WitchRush [init]" />
+      <item itemvalue="Gradle.WitchRush [compileJava]" />
+      <item itemvalue="Gradle.WitchRush [testClasses]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.WitchRush [build]" />
+        <item itemvalue="Gradle.WitchRush [testClasses]" />
+        <item itemvalue="Gradle.WitchRush [compileJava]" />
+        <item itemvalue="Gradle.WitchRush [init]" />
+        <item itemvalue="Gradle.WitchRush [jar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\asus\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a79b7b5-da71-4175-8877-2d0cd22b5542" name="Default Changelist" comment="" />
+      <created>1536599327798</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1536599327798</updated>
+      <workItem from="1536599330059" duration="415000" />
+      <workItem from="1536599924411" duration="1273000" />
+      <workItem from="1536601492563" duration="1893000" />
+      <workItem from="1536684794614" duration="703000" />
+      <workItem from="1536685530006" duration="2475000" />
+      <workItem from="1536855564804" duration="6578000" />
+      <workItem from="1536864153738" duration="1419000" />
+      <workItem from="1536927961560" duration="7825000" />
+      <workItem from="1536945792962" duration="11422000" />
+      <workItem from="1537092957162" duration="5916000" />
+      <workItem from="1537115208455" duration="4128000" />
+      <workItem from="1537193051672" duration="5484000" />
+      <workItem from="1537378209308" duration="1818000" />
+      <workItem from="1537461562712" duration="3396000" />
+      <workItem from="1537531780384" duration="6692000" />
+      <workItem from="1537611951805" duration="2959000" />
+      <workItem from="1537636497736" duration="14776000" />
+      <workItem from="1537699227329" duration="1126000" />
+      <workItem from="1537718539201" duration="386000" />
+      <workItem from="1537721620247" duration="29000" />
+      <workItem from="1537888099657" duration="1053000" />
+      <workItem from="1538215669679" duration="2699000" />
+      <workItem from="1538309410658" duration="4119000" />
+      <workItem from="1538315596024" duration="4584000" />
+      <workItem from="1538917905117" duration="1684000" />
+      <workItem from="1538927791641" duration="5323000" />
+      <workItem from="1539102541457" duration="2736000" />
+      <workItem from="1539274974392" duration="4466000" />
+      <workItem from="1539449101104" duration="5279000" />
+      <workItem from="1539534985373" duration="4623000" />
+      <workItem from="1540056381773" duration="1920000" />
+      <workItem from="1540060923024" duration="1467000" />
+      <workItem from="1540328351387" duration="4822000" />
+      <workItem from="1541439734317" duration="91000" />
+      <workItem from="1541439886801" duration="11000" />
+    </task>
+    <task id="LOCAL-00001" summary="commited up !">
+      <created>1536602827991</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536602827991</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commited up !">
+      <created>1536603382061</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1536603382061</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Timer done !">
+      <created>1536858472902</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1536858472905</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Timer done !">
+      <created>1536864825337</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1536864825337</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Gradle -&gt; Maven (pour les nms) mp pour explications">
+      <created>1536864899849</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1536864899849</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Avancement du Plugin">
+      <created>1536932598279</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1536932598279</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Avancement du Plugin">
+      <created>1536936052090</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1536936052090</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added Team system &amp; Guis">
+      <created>1536956491175</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1536956491175</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added Team system &amp; Guis">
+      <created>1536959563910</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1536959563911</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added Team system &amp; Guis">
+      <created>1537115275446</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1537115275446</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added Team system &amp; Guis">
+      <created>1537381607495</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1537381607495</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Plugin %10 remaining">
+      <created>1537616213718</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1537616213718</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added Timer + Scoreboard">
+      <created>1537639987818</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1537639987819</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Classes Improved">
+      <created>1537649122548</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1537649122548</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Witch done soon (85% -&gt; 1 error remaining) Plugin 85% done">
+      <created>1537652657813</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1537652657813</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Witch done soon (85% -&gt; 1 error remaining) Plugin 85% done">
+      <created>1538309585037</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1538309585037</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Witch done soon (85% -&gt; 1 error remaining) Plugin 85% done">
+      <created>1538309875787</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1538309875802</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Witch done soon (85% -&gt; 1 error remaining) Plugin 85% done">
+      <created>1539279552744</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1539279552744</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Soon done inshallah">
+      <created>1539453143774</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1539453143780</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Kits added">
+      <created>1539538388057</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1539538388062</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="125457000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4940171" visible="true" weight="0.33661118" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24962178" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.50598294" side_tool="true" weight="0.18683812" />
+      <window_info id="Image Layers" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" x="-1" y="310" width="1366" height="200" id="Messages" internal_type="SLIDING" order="1" type="SLIDING" weight="0.39967105" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.32991454" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49848714" weight="0.31282052" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.32991454" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5015129" side_tool="true" weight="0.31282052" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32991454" />
+      <window_info anchor="bottom" id="Build" order="12" sideWeight="0.49924356" weight="0.32991454" />
+      <window_info anchor="right" id="Database" order="0" weight="0.32980332" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Maven Projects" order="2" weight="0.13993949" />
+      <window_info anchor="right" id="Ant Build" order="3" weight="0.24962178" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Gradle" order="9" weight="0.32980332" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="EXTERNAL C:/Users/asus/Desktop/Dev/WorkSpace/WitchRush">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commited up !" />
+    <MESSAGE value="Timer done !" />
+    <MESSAGE value="Gradle -&gt; Maven (pour les nms) mp pour explications" />
+    <MESSAGE value="Avancement du Plugin" />
+    <MESSAGE value="Added Team system &amp; Guis" />
+    <MESSAGE value="Plugin %10 remaining" />
+    <MESSAGE value="Added Timer + Scoreboard" />
+    <MESSAGE value="Classes Improved" />
+    <MESSAGE value="Witch done soon (85% -&gt; 1 error remaining) Plugin 85% done" />
+    <MESSAGE value="Soon done inshallah" />
+    <MESSAGE value="Kits added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kits added" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/resources/1x16.yml" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/Teams3x4.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/Teams2x8.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerFood.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/admins/TestCMD.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/servers/ServerPing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-SNAPSHOT-sources.jar!/org/bukkit/Color.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-SNAPSHOT-sources.jar!/org/bukkit/DyeColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="177" column="46" lean-forward="true" selection-start-line="177" selection-start-column="46" selection-end-line="177" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerQuit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/entities/DamageEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamsMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="34" column="70" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/ItemFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/resources/config.yml" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/WitchBoss.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/GoblinI.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/GoblinIII.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/GoblinII.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/ElfIII.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/ElfII.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/ElfI.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerChat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="41" column="107" selection-start-line="41" selection-start-column="107" selection-end-line="41" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/WinManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="79" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/PVPTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/HealthRunnable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="44" column="72" selection-start-line="44" selection-start-column="72" selection-end-line="44" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/TypeStairsRotate.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/entities/EntityDeath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-SNAPSHOT-sources.jar!/org/bukkit/configuration/MemorySection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="302" column="15" selection-start-line="302" selection-start-column="15" selection-end-line="302" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/resources/4x4.yml" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/admins/LocationsCMD.java" />
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/resources/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/WitchRush.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerDeath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/DeadPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/tools/Locations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamsInfos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/InventoryClick.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="49" column="65" selection-start-line="49" selection-start-column="65" selection-end-line="49" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/game/task/StartTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-SNAPSHOT-sources.jar!/org/bukkit/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-SNAPSHOT-sources.jar!/org/bukkit/event/block/BlockDamageEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/CommandsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/kits/Kits.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-400">
+          <caret line="37" column="65" selection-start-line="37" selection-start-column="65" selection-end-line="37" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/world/WorldEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/ListenersManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerInteract.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="131" column="57" selection-start-line="131" selection-start-column="57" selection-end-line="131" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/commands/admins/GameCMD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerJoin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/listeners/players/PlayerMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/team/TeamManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getBossLocation#0;class#TeamManager#0" />
+            <element signature="method#getShopLocation#0;class#TeamManager#0" />
+            <element signature="method#getUpgradeLocation#0;class#TeamManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WitchRush/src/main/java/net/berrygames/witchrush/WitchPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="gradleExecuteTaskHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="clean install" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Minecraft (WitchRush_main)|Minecraft</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8-161</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>WitchRush|WitchRush</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8-161</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: junit:junit:4.12</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

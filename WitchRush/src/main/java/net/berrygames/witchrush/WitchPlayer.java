@@ -3,7 +3,9 @@ package net.berrygames.witchrush;
 import net.berrygames.witchrush.game.GameState;
 import net.berrygames.witchrush.kits.Kits;
 import net.berrygames.witchrush.team.TeamManager;
+import net.berrygames.witchrush.team.TeamsInfos;
 import net.berrygames.witchrush.tools.ItemFactory;
+import net.berrygames.witchrush.tools.Locations;
 import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -23,17 +25,33 @@ public class WitchPlayer {
     private boolean spectator;
     private int kills, death;
     private TeamManager manager;
+    private TeamsInfos team;
 
     public WitchPlayer(Player player) {
         this.player = player;
         this.spectator = GameState.getStatus().equals(GameState.GAME) ? true: false;
         this.kills = 0;
         this.death = 0;
+        this.team = WitchRush.get().getTeamManager().getPlayerTeam(player);
         this.manager = WitchRush.get().getTeamManager();
     }
 
     public void teleportToBase(){
-        player.teleport(manager.getTeamLocation(manager.getPlayerTeam(player)));
+        switch (manager.getPlayerTeam(player)){
+            case ROUGE:
+                player.teleport(Locations.SPAWN_ROUGE.getLoc());
+                break;
+            case VERT:
+                player.teleport(Locations.SPAWN_VERT.getLoc());
+                break;
+            case JAUNE:
+                player.teleport(Locations.SPAWN_JAUNE.getLoc());
+                break;
+            case BLEU:
+                player.teleport(Locations.SPAWN_BLEU.getLoc());
+                break;
+        }
+
     }
 
     public void giveStuff(){
